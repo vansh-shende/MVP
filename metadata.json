@@ -1,0 +1,6 @@
+{
+  "name": "KITS Ramtek - Student Activity & Achievement Portfolio",
+  "description": "Digital Student Activity and Achievement Portfolio System for Kavikulguru Institute of Technology and Science, Ramtek",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
