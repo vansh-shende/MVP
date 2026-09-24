@@ -45,6 +45,8 @@ export interface ActivitySubmission {
   studentName: string;
   studentRoll?: string;
   studentDept?: string;
+  studentYear?: string;
+  branch?: string;
   title: string;
   category: ActivityCategory | string;
   level: ActivityLevel | string;
@@ -53,9 +55,14 @@ export interface ActivitySubmission {
   role: ActivityRole | string;
   description?: string;
   certificateName?: string;
+  certificateFileName?: string;
+  certificateFileType?: string;
+  certificateData?: string;
   status: SubmissionStatus;
   submittedAt?: string;
   teacherRemark?: string;
+  facultyRemarks?: string;
+  rejectionReason?: string;
   // Backward compatibility helpers
   type?: string;
   eventOrOrg?: string;
@@ -66,6 +73,5 @@ export interface ActivitySubmission {
   semester?: string;
   reviewedBy?: string;
   reviewedAt?: string;
-  facultyRemarks?: string;
   activityPoints?: number;
 }

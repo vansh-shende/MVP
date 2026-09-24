@@ -42,7 +42,16 @@ export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     try {
       const saved = localStorage.getItem('studentActivities');
       if (saved) {
-        return JSON.parse(saved);
+        const parsed = JSON.parse(saved) as ActivitySubmission[];
+        // Check if saved data contains the new mock data or old mock data
+        const hasNewFormat = parsed.some(s => s.id === 'sub-vs-01' || s.id === 'sub-pm-01');
+        if (hasNewFormat) {
+          return parsed;
+        } else {
+          // Keep user-created submissions (IDs starting with act-), but update demo data to the exact 10 students
+          const userCreated = parsed.filter(s => s.id.startsWith('act-'));
+          return [...userCreated, ...INITIAL_SUBMISSIONS];
+        }
       }
     } catch {
       // fallback
@@ -51,7 +60,11 @@ export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
   });
 
   useEffect(() => {
-    localStorage.setItem('studentActivities', JSON.stringify(submissions));
+    try {
+      localStorage.setItem('studentActivities', JSON.stringify(submissions));
+    } catch (e) {
+      console.warn('LocalStorage save failed, using memory state:', e);
+    }
   }, [submissions]);
 
   const addSubmission = (newSub: any) => {
@@ -63,10 +76,12 @@ export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
     const created: ActivitySubmission = {
       id: `act-${Date.now()}`,
-      studentId: newSub.studentId || 'std-101',
+      studentId: newSub.studentId || 'std-103',
       studentName: newSub.studentName || 'Vansh Shende',
-      studentRoll: newSub.studentRoll || 'ITXXXX',
-      studentDept: newSub.studentDept || 'Information Technology',
+      studentRoll: newSub.studentRoll || 'IT202208',
+      studentDept: newSub.studentDept || newSub.branch || 'Information Technology (IT)',
+      studentYear: newSub.studentYear || '3rd Year',
+      branch: newSub.branch || newSub.studentDept || 'Information Technology (IT)',
       title: newSub.title,
       category: newSub.category,
       level: newSub.level || 'College',
@@ -74,7 +89,10 @@ export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
       organizingInstitution: newSub.organizingInstitution,
       role: newSub.role || 'Participant',
       description: newSub.description || '',
-      certificateName: newSub.certificateName || newSub.proofFileName || '',
+      certificateName: newSub.certificateFileName || newSub.certificateName || newSub.proofFileName || 'Certificate.pdf',
+      certificateFileName: newSub.certificateFileName || newSub.certificateName || 'Certificate.pdf',
+      certificateFileType: newSub.certificateFileType || (newSub.certificateName?.endsWith('.pdf') ? 'application/pdf' : 'image/png'),
+      certificateData: newSub.certificateData || '',
       status: 'Pending',
       submittedAt: formattedDate,
       dateSubmitted: formattedDate,
@@ -90,7 +108,7 @@ export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     status: SubmissionStatus,
     facultyRemarks?: string,
     activityPoints?: number,
-    reviewerName: string = 'Dr. Neha Deshmukh'
+    reviewerName: string = 'Mrs. Harshita Jain'
   ) => {
     const formattedDate = new Intl.DateTimeFormat('en-GB', {
       day: 'numeric',
@@ -106,14 +124,19 @@ export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
             status,
             teacherRemark: facultyRemarks !== undefined ? facultyRemarks : sub.teacherRemark,
             facultyRemarks: facultyRemarks !== undefined ? facultyRemarks : sub.facultyRemarks,
-            activityPoints: activityPoints !== undefined ? activityPoints : sub.activityPoints,
+            rejectionReason: status === 'Rejected' ? (facultyRemarks || sub.rejectionReason) : undefined,
+            activityPoints: status === 'Approved' ? (activityPoints !== undefined ? activityPoints : (sub.activityPoints || 25)) : sub.activityPoints,
             reviewedBy: reviewerName,
             reviewedAt: formattedDate
           };
         }
         return sub;
       });
-      localStorage.setItem('studentActivities', JSON.stringify(updated));
+      try {
+        localStorage.setItem('studentActivities', JSON.stringify(updated));
+      } catch (e) {
+        console.warn('LocalStorage save failed:', e);
+      }
       return updated;
     });
   };
@@ -135,8 +158,10 @@ export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     return submissions.filter(sub => sub.status === 'Pending' || sub.status === 'Under Review');
   };
 
-  // Student Vansh Shende (std-101) dynamic metrics calculated from localStorage
-  const studentSubmissions = submissions.filter(sub => (sub.studentId === 'std-101' || !sub.studentId));
+  // Student Vansh Shende (std-103 or std-101 or matching name) dynamic metrics
+  const studentSubmissions = submissions.filter(sub => (
+    sub.studentId === 'std-103' || sub.studentId === 'std-101' || sub.studentName === 'Vansh Shende' || !sub.studentId
+  ));
   const studentStats = {
     totalActivities: studentSubmissions.length,
     pending: studentSubmissions.filter(s => s.status === 'Pending' || s.status === 'Under Review').length,
@@ -144,16 +169,15 @@ export const ActivityProvider: React.FC<{ children: React.ReactNode }> = ({ chil
     rejected: studentSubmissions.filter(s => s.status === 'Rejected').length
   };
 
-  // Teacher dynamic metrics calculated directly from studentActivities
+  // Teacher dynamic metrics calculated directly from submissions
   const teacherStats = {
     pendingReviews: submissions.filter(s => s.status === 'Pending' || s.status === 'Under Review').length,
     approved: submissions.filter(s => s.status === 'Approved' || s.status === 'Verified').length,
     rejected: submissions.filter(s => s.status === 'Rejected').length,
     totalSubmissions: submissions.length,
-    // Keep backward-compatible keys
     verifiedRecords: submissions.filter(s => s.status === 'Approved' || s.status === 'Verified').length,
     pendingVerification: submissions.filter(s => s.status === 'Pending' || s.status === 'Under Review').length,
-    totalStudents: 120
+    totalStudents: 10
   };
 
   const value: ActivityContextType = {

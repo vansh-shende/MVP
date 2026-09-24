@@ -83,7 +83,7 @@ export const CollegeHeader: React.FC<CollegeHeaderProps> = ({
                 <div className="divide-y divide-[#D9E0E7]/60">
                   <div className="px-3 py-2.5 hover:bg-[#F5F7F9] transition-colors cursor-pointer">
                     <p className="font-medium text-[#0B2945]">Workshop Record Approved</p>
-                    <p className="text-[#65758B] text-[11px] mt-0.5">Faculty Dr. Neha Deshmukh approved your activity</p>
+                    <p className="text-[#65758B] text-[11px] mt-0.5">Faculty Mrs. Harshita Jain approved your activity</p>
                     <span className="text-[10px] text-[#65758B] mt-1 inline-block">2 hours ago</span>
                   </div>
                   <div className="px-3 py-2.5 hover:bg-[#F5F7F9] transition-colors cursor-pointer">

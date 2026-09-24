@@ -207,7 +207,7 @@ export const LoginPage: React.FC = () => {
                   onClick={handleQuickTeacher}
                   className="px-2.5 py-1.5 text-xs font-semibold text-[#287A55] bg-[#EAF5EE] hover:bg-[#C6E7D5] border border-[#C6E7D5] rounded-[5px] transition-colors text-center"
                 >
-                  Faculty (Dr. Neha)
+                  Faculty (Mrs. Harshita Jain)
                 </button>
               </div>
             </div>

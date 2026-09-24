@@ -22,7 +22,7 @@ export const StudentDashboard: React.FC = () => {
 
   // Student submissions for Vansh Shende
   const studentSubs = submissions.filter(
-    (s) => s.studentId === (currentUser?.id || 'std-101') || !s.studentId
+    (s) => s.studentId === currentUser?.id || s.studentId === 'std-103' || s.studentId === 'std-101' || s.studentName === 'Vansh Shende' || !s.studentId
   );
 
   // Dynamic recent 5 activities

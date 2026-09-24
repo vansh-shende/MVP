@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BarChart3, Download, FileSpreadsheet, CheckCircle2, ShieldCheck } from 'lucide-react';
 import { DashboardLayout } from '../../components/layout/DashboardLayout';
 import { COLLEGE_INFO } from '../../data/mockData';
@@ -7,8 +7,32 @@ import { useActivity } from '../../context/ActivityContext';
 export const ReportsPage: React.FC = () => {
   const { stats, submissions } = useActivity();
 
+  const [exportNotice, setExportNotice] = useState(false);
+
   const handleExportCSV = () => {
-    alert('Simulating CSV export of all student activity points for NAAC/NBA documentation.');
+    const headers = ['Student Name', 'Roll Number', 'Branch', 'Year', 'Activity Title', 'Category', 'Level', 'Date', 'Status', 'Points'];
+    const rows = submissions.map(s => [
+      `"${s.studentName || ''}"`,
+      `"${s.studentRoll || ''}"`,
+      `"${s.branch || s.studentDept || ''}"`,
+      `"${s.studentYear || ''}"`,
+      `"${(s.title || '').replace(/"/g, '""')}"`,
+      `"${s.category || ''}"`,
+      `"${s.level || ''}"`,
+      `"${s.date || ''}"`,
+      `"${s.status || ''}"`,
+      `"${s.activityPoints || (s.status === 'Approved' ? 25 : 0)}"`
+    ]);
+    const csvContent = 'data:text/csv;charset=utf-8,' + [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+    const encodedUri = encodeURI(csvContent);
+    const link = document.createElement('a');
+    link.setAttribute('href', encodedUri);
+    link.setAttribute('download', `KITS_Ramtek_Activity_Report_${new Date().toISOString().slice(0, 10)}.csv`);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+    setExportNotice(true);
+    setTimeout(() => setExportNotice(false), 3000);
   };
 
   return (
@@ -27,12 +51,19 @@ export const ReportsPage: React.FC = () => {
 
           <button
             onClick={handleExportCSV}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold shadow-xs transition-colors self-start sm:self-auto"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg text-xs font-semibold shadow-xs transition-colors self-start sm:self-auto cursor-pointer"
           >
             <Download className="w-4 h-4" />
             Export NAAC Data (CSV)
           </button>
         </div>
+
+        {exportNotice && (
+          <div className="p-3 bg-emerald-50 border border-emerald-200 text-emerald-800 text-xs rounded-lg flex items-center gap-2">
+            <CheckCircle2 className="w-4 h-4 text-emerald-600" />
+            <span>NAAC Activity Report CSV exported successfully.</span>
+          </div>
+        )}
 
         {/* Overview Metric Highlights */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-5">

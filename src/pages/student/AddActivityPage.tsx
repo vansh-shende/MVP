@@ -37,6 +37,8 @@ export const AddActivityPage: React.FC = () => {
   const [description, setDescription] = useState('');
   const [certificateFile, setCertificateFile] = useState<File | null>(null);
   const [certificateName, setCertificateName] = useState('');
+  const [certificateData, setCertificateData] = useState<string>('');
+  const [certificateFileType, setCertificateFileType] = useState<string>('');
 
   // Validation & Submission States
   const [errors, setErrors] = useState<FormErrors>({});
@@ -80,6 +82,8 @@ export const AddActivityPage: React.FC = () => {
       }));
       setCertificateFile(null);
       setCertificateName('');
+      setCertificateData('');
+      setCertificateFileType('');
       return;
     }
 
@@ -90,10 +94,12 @@ export const AddActivityPage: React.FC = () => {
       }));
       setCertificateFile(null);
       setCertificateName('');
+      setCertificateData('');
+      setCertificateFileType('');
       return;
     }
 
-    // Valid file
+    // Valid file - read into Data URL for persistent faculty review
     setErrors((prev) => {
       const next = { ...prev };
       delete next.certificate;
@@ -101,6 +107,51 @@ export const AddActivityPage: React.FC = () => {
     });
     setCertificateFile(file);
     setCertificateName(file.name);
+
+    const isPdf = file.type === 'application/pdf' || file.name.toLowerCase().endsWith('.pdf');
+    const detectedType = isPdf ? 'application/pdf' : (file.type || 'image/png');
+    setCertificateFileType(detectedType);
+
+    const reader = new FileReader();
+    reader.onload = (event) => {
+      const rawDataUrl = event.target?.result as string;
+      if (!isPdf && file.type.startsWith('image/')) {
+        // Optimize image resolution to keep localStorage performant
+        const img = new Image();
+        img.onload = () => {
+          const maxDim = 1200;
+          let width = img.width;
+          let height = img.height;
+          if (width > maxDim || height > maxDim) {
+            if (width > height) {
+              height = Math.round((height * maxDim) / width);
+              width = maxDim;
+            } else {
+              width = Math.round((width * maxDim) / height);
+              height = maxDim;
+            }
+          }
+          const canvas = document.createElement('canvas');
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          if (ctx) {
+            ctx.drawImage(img, 0, 0, width, height);
+            const optimized = canvas.toDataURL('image/jpeg', 0.85);
+            setCertificateData(optimized);
+          } else {
+            setCertificateData(rawDataUrl);
+          }
+        };
+        img.onerror = () => {
+          setCertificateData(rawDataUrl);
+        };
+        img.src = rawDataUrl;
+      } else {
+        setCertificateData(rawDataUrl);
+      }
+    };
+    reader.readAsDataURL(file);
   };
 
   const validateForm = (): boolean => {
@@ -143,10 +194,12 @@ export const AddActivityPage: React.FC = () => {
 
     // Save to localStorage via ActivityContext
     addSubmission({
-      studentId: currentUser?.id || 'std-101',
+      studentId: currentUser?.id || 'std-103',
       studentName: currentUser?.name || 'Vansh Shende',
-      studentRoll: currentUser?.rollNumber || 'ITXXXX',
-      studentDept: currentUser?.department || 'Information Technology',
+      studentRoll: currentUser?.rollNumber || 'IT202208',
+      studentDept: currentUser?.department || 'Information Technology (IT)',
+      studentYear: currentUser?.year || '3rd Year',
+      branch: currentUser?.department || 'Information Technology (IT)',
       title: title.trim(),
       category,
       level,
@@ -154,7 +207,10 @@ export const AddActivityPage: React.FC = () => {
       organizingInstitution: organizingInstitution.trim(),
       role,
       description: description.trim(),
-      certificateName: certificateName || (certificateFile ? certificateFile.name : '')
+      certificateName: certificateName || (certificateFile ? certificateFile.name : 'Certificate.pdf'),
+      certificateFileName: certificateName || (certificateFile ? certificateFile.name : 'Certificate.pdf'),
+      certificateFileType: certificateFileType || (certificateFile ? certificateFile.type : (certificateName.endsWith('.pdf') ? 'application/pdf' : 'image/png')),
+      certificateData: certificateData || ''
     });
 
     setSuccessMessage('Activity submitted successfully.');
@@ -435,6 +491,8 @@ export const AddActivityPage: React.FC = () => {
                       onClick={() => {
                         setCertificateFile(null);
                         setCertificateName('');
+                        setCertificateData('');
+                        setCertificateFileType('');
                       }}
                       className="p-1 text-[#65758B] hover:text-[#B33A3A]"
                       title="Remove file"

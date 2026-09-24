@@ -29,7 +29,7 @@ export const TeacherDashboard: React.FC = () => {
     status: SubmissionStatus,
     remarks?: string
   ) => {
-    updateSubmissionStatus(id, status, remarks, 25, currentUser?.name || 'Dr. Neha Deshmukh');
+    updateSubmissionStatus(id, status, remarks, 25, currentUser?.name || 'Mrs. Harshita Jain');
 
     if (status === 'Approved') {
       setActionFeedback('Activity approved successfully.');
@@ -48,10 +48,10 @@ export const TeacherDashboard: React.FC = () => {
         {/* FACULTY DASHBOARD HEADER */}
         <div className="bg-white rounded-[6px] border border-[#D9E0E7] px-5 py-4">
           <span className="text-[11px] font-bold text-[#65758B] uppercase tracking-wider">
-            Faculty Portal
+            Faculty Review Portal
           </span>
           <h1 className="text-xl sm:text-2xl font-bold text-[#0B2945] mt-0.5">
-            Hello, {currentUser?.name?.split(' ')[1] || 'Dr. Deshmukh'}.
+            Hello, {currentUser?.name || 'Mrs. Harshita Jain'}.
           </h1>
           <p className="text-xs sm:text-[13px] text-[#65758B] mt-0.5">
             Review student activity submissions, inspect uploaded proof documents, and record verification status.

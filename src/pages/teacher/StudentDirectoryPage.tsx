@@ -1,27 +1,19 @@
 import React, { useState } from 'react';
-import { Users, Search, GraduationCap } from 'lucide-react';
+import { Users, Search } from 'lucide-react';
 import { DashboardLayout } from '../../components/layout/DashboardLayout';
 import { useActivity } from '../../context/ActivityContext';
+import { DEMO_STUDENTS_LIST } from '../../data/mockData';
 
 export const StudentDirectoryPage: React.FC = () => {
   const { submissions } = useActivity();
   const [search, setSearch] = useState('');
   const [deptFilter, setDeptFilter] = useState('all');
 
-  const studentsList = [
-    { id: 'std-101', name: 'Vansh Shende', roll: 'ITXXXX', dept: 'Information Technology', year: '3rd Year (Sem 5)', cgpa: '8.12' },
-    { id: 'std-102', name: 'Riya Patil', roll: 'IT202302', dept: 'Information Technology', year: '3rd Year (Sem 5)', cgpa: '8.45' },
-    { id: 'std-103', name: 'Sahil Khan', roll: 'CS202301', dept: 'Computer Technology', year: '3rd Year (Sem 5)', cgpa: '7.85' },
-    { id: 'std-104', name: 'Sneha More', roll: 'EC202304', dept: 'Electronics & Communication', year: '3rd Year (Sem 5)', cgpa: '8.72' },
-    { id: 'std-105', name: 'Aditya Sharma', roll: 'ME202305', dept: 'Mechanical Engineering', year: '3rd Year (Sem 5)', cgpa: '7.60' },
-    { id: 'std-106', name: 'Pooja Singh', roll: 'CE202306', dept: 'Civil Engineering', year: '3rd Year (Sem 5)', cgpa: '8.15' },
-  ];
-
-  const filtered = studentsList.filter((std) => {
-    if (deptFilter !== 'all' && std.dept !== deptFilter) return false;
+  const filtered = DEMO_STUDENTS_LIST.filter((std) => {
+    if (deptFilter !== 'all' && !std.branch.toLowerCase().includes(deptFilter.toLowerCase())) return false;
     if (search.trim()) {
       const q = search.toLowerCase();
-      return std.name.toLowerCase().includes(q) || std.roll.toLowerCase().includes(q) || std.dept.toLowerCase().includes(q);
+      return std.name.toLowerCase().includes(q) || std.roll.toLowerCase().includes(q) || std.branch.toLowerCase().includes(q);
     }
     return true;
   });
@@ -87,7 +79,7 @@ export const StudentDirectoryPage: React.FC = () => {
               </thead>
               <tbody className="divide-y divide-[#D9E0E7]">
                 {filtered.map((std) => {
-                  const studentSubs = submissions.filter(s => s.studentId === std.id || (!s.studentId && std.id === 'std-101'));
+                  const studentSubs = submissions.filter(s => s.studentId === std.id || s.studentName === std.name);
                   const approvedCount = studentSubs.filter(s => s.status === 'Approved' || s.status === 'Verified').length;
                   return (
                     <tr key={std.id} className="hover:bg-[#F5F7F9] transition-colors">
@@ -100,7 +92,7 @@ export const StudentDirectoryPage: React.FC = () => {
                         </div>
                       </td>
                       <td className="py-3 px-4 font-mono text-[#243447]">{std.roll}</td>
-                      <td className="py-3 px-4 text-[#243447]">{std.dept}</td>
+                      <td className="py-3 px-4 text-[#243447]">{std.branch}</td>
                       <td className="py-3 px-4 text-[#65758B]">{std.year}</td>
                       <td className="py-3 px-4 font-mono font-medium text-[#0B2945]">{std.cgpa}</td>
                       <td className="py-3 px-4 text-center font-mono">

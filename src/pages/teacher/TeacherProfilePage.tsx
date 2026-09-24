@@ -23,12 +23,12 @@ export const TeacherProfilePage: React.FC = () => {
         <div className="bg-white rounded-xl border border-slate-200 shadow-xs p-6 sm:p-8">
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-6 border-b border-slate-100">
             <div className="w-24 h-24 rounded-full bg-blue-100 text-blue-700 flex items-center justify-center font-bold text-2xl border-4 border-slate-50 shadow-sm">
-              {currentUser?.name?.slice(0, 2) || 'ND'}
+              {currentUser?.name?.slice(0, 2) || 'HJ'}
             </div>
             <div className="text-center sm:text-left space-y-1">
-              <h2 className="text-xl font-bold text-slate-900">{currentUser?.name || 'Dr. Neha Deshmukh'}</h2>
+              <h2 className="text-xl font-bold text-slate-900">{currentUser?.name || 'Mrs. Harshita Jain'}</h2>
               <p className="text-sm font-semibold text-blue-600">
-                {currentUser?.designation || 'Associate Professor & Activity Coordinator'}
+                {currentUser?.designation || 'Faculty Reviewer'}
               </p>
               <p className="text-xs text-slate-500">{COLLEGE_INFO.name}</p>
               <div className="pt-2 flex flex-wrap justify-center sm:justify-start gap-2">
@@ -36,7 +36,7 @@ export const TeacherProfilePage: React.FC = () => {
                   Authorized Verifier
                 </span>
                 <span className="text-[11px] font-mono text-slate-600 bg-slate-100 px-2 py-0.5 rounded">
-                  Faculty ID: {currentUser?.facultyId || 'FAC-IT-042'}
+                  Faculty ID: {currentUser?.facultyId || 'FAC-REV-108'}
                 </span>
               </div>
             </div>
@@ -54,7 +54,7 @@ export const TeacherProfilePage: React.FC = () => {
               <p className="text-slate-400 font-medium">Official Email</p>
               <p className="font-semibold text-slate-900 text-sm mt-0.5 flex items-center gap-2">
                 <Mail className="w-4 h-4 text-slate-400" />
-                {currentUser?.email || 'neha.deshmukh@kits.edu'}
+                {currentUser?.email || 'harshita.jain@kits.edu'}
               </p>
             </div>
             <div>

@@ -20,7 +20,11 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
     try {
       const savedUser = localStorage.getItem('kits_portfolio_user');
       if (savedUser) {
-        return JSON.parse(savedUser);
+        const parsed = JSON.parse(savedUser);
+        if (parsed.role === 'teacher') {
+          return DEMO_TEACHER;
+        }
+        return parsed;
       }
     } catch {
       // fallback

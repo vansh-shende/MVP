@@ -26,7 +26,7 @@ export const VerificationPage: React.FC = () => {
     status: SubmissionStatus,
     remarks?: string
   ) => {
-    updateSubmissionStatus(id, status, remarks, 25, currentUser?.name || 'Dr. Neha Deshmukh');
+    updateSubmissionStatus(id, status, remarks, 25, currentUser?.name || 'Mrs. Harshita Jain');
 
     if (status === 'Approved') {
       setActionFeedback('Activity approved successfully.');
