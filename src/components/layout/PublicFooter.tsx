@@ -33,7 +33,7 @@ export const PublicFooter: React.FC = () => {
           <div className="md:col-span-3 space-y-2">
             <h4 className="text-xs font-bold uppercase tracking-wider text-slate-200">Portal Navigation</h4>
             <ul className="space-y-1.5 text-xs text-slate-300">
-              <li><Link to="/" className="hover:text-white transition-colors">Portal Home</Link></li>
+              <li><Link to="/home" className="hover:text-white transition-colors">Portal Home</Link></li>
               <li><a href="#about" className="hover:text-white transition-colors">About Portal</a></li>
               <li><a href="#how-it-works" className="hover:text-white transition-colors">Verification Procedure</a></li>
               <li><a href="#activities" className="hover:text-white transition-colors">Student Activities</a></li>

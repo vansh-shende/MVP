@@ -27,8 +27,10 @@ export default function App() {
         <BrowserRouter>
           <Routes>
             {/* Public Routes */}
-            <Route path="/" element={<LandingPage />} />
+            <Route path="/" element={<LoginPage />} />
             <Route path="/login" element={<LoginPage />} />
+            <Route path="/home" element={<LandingPage />} />
+            <Route path="/landing" element={<LandingPage />} />
 
             {/* Student Routes */}
             <Route path="/student/dashboard" element={<StudentDashboard />} />

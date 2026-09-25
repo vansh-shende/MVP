@@ -59,12 +59,12 @@ export const LandingPage: React.FC = () => {
                 </span>
               </div>
 
-              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[#0B2945] tracking-tight leading-tight">
+              <h1 className="text-2xl sm:text-3xl lg:text-[40px] font-bold text-[#0B2945] tracking-tight leading-tight">
                 Student Activity & Achievement Portal
               </h1>
 
               <p className="text-sm sm:text-base text-[#65758B] leading-relaxed max-w-2xl">
-                A centralized platform for maintaining, submitting and verifying student activities, achievements and certificates.
+                Manage student activities, achievements and certificates in one place. Faculty can review and verify submitted records.
               </p>
 
               {/* Institutional Key Accreditation Badges */}
@@ -126,7 +126,7 @@ export const LandingPage: React.FC = () => {
                     Kavikulguru Institute of Technology & Science, Ramtek
                   </p>
                   <p className="text-[11px] text-[#65758B] mt-0.5">
-                    Sprawling 50+ acre campus equipped with modern engineering labs, research facilities and sports infrastructure.
+                    50-acre campus with academic blocks, labs, and student facilities.
                   </p>
                 </div>
               </div>
@@ -167,37 +167,37 @@ export const LandingPage: React.FC = () => {
                 INSTITUTIONAL DIGITAL REPOSITORY
               </div>
 
-              <h2 className="text-xl sm:text-2xl font-bold text-[#0B2945] tracking-tight">
+              <h2 className="text-xl sm:text-2xl font-semibold text-[#0B2945] tracking-tight">
                 About the Portal
               </h2>
 
-              <p className="text-sm text-[#243447] leading-relaxed">
-                The Student Activity & Achievement Portal provides a centralized digital record for student activities, achievements and certificates. Students can submit their records online, while faculty members can review and verify the submitted information.
+              <p className="text-sm sm:text-[15px] text-[#243447] leading-relaxed">
+                Manage student activities, achievements and certificates in one place. Faculty can review and verify submitted records.
               </p>
 
               {/* Three Institutional Pillars */}
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 pt-2">
                 <div className="bg-white border border-[#D9E0E7] rounded-[5px] p-3.5 space-y-1">
                   <FileCheck2 className="w-4 h-4 text-[#123B63]" />
-                  <h4 className="text-xs font-bold text-[#0B2945]">Unified Record</h4>
+                  <h4 className="text-xs font-semibold text-[#0B2945]">Unified Record</h4>
                   <p className="text-[11px] text-[#65758B] leading-normal">
-                    Single source of truth for technical, sports, cultural, and academic honors.
+                    Central record for technical, sports, cultural, and academic events.
                   </p>
                 </div>
 
                 <div className="bg-white border border-[#D9E0E7] rounded-[5px] p-3.5 space-y-1">
                   <Clock className="w-4 h-4 text-[#A66A00]" />
-                  <h4 className="text-xs font-bold text-[#0B2945]">Faculty Verification</h4>
+                  <h4 className="text-xs font-semibold text-[#0B2945]">Faculty Review</h4>
                   <p className="text-[11px] text-[#65758B] leading-normal">
-                    Department faculty evaluate submissions with remarks and approval status.
+                    Department faculty verify uploaded documents and record remarks.
                   </p>
                 </div>
 
                 <div className="bg-white border border-[#D9E0E7] rounded-[5px] p-3.5 space-y-1">
                   <CheckCircle className="w-4 h-4 text-[#287A55]" />
-                  <h4 className="text-xs font-bold text-[#0B2945]">Verified Portfolio</h4>
+                  <h4 className="text-xs font-semibold text-[#0B2945]">Verified Portfolio</h4>
                   <p className="text-[11px] text-[#65758B] leading-normal">
-                    Official records for campus placements, NAAC criteria, and higher studies.
+                    Official records for academic appraisals, NAAC data, and placements.
                   </p>
                 </div>
               </div>
@@ -230,9 +230,9 @@ export const LandingPage: React.FC = () => {
             <span className="text-xs font-bold uppercase tracking-wider text-[#123B63]">
               PROCEDURAL WORKFLOW
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#0B2945] mt-1">How It Works</h2>
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#0B2945] mt-1">How It Works</h2>
             <p className="text-xs sm:text-sm text-[#65758B] mt-1">
-              A transparent 3-step institutional procedure for maintaining student co-curricular records.
+              Three simple steps to submit and verify student records.
             </p>
           </div>
 
@@ -245,11 +245,11 @@ export const LandingPage: React.FC = () => {
                 </span>
                 <span className="text-[11px] font-medium text-[#65758B]">Step 1 of 3</span>
               </div>
-              <h3 className="text-sm font-bold text-[#0B2945] pt-1">
-                Add your activity or achievement
+              <h3 className="text-sm font-semibold text-[#0B2945] pt-1">
+                Add activity details
               </h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Students add activity or achievement details including event title, category, level, organizing body, and upload supporting documents or certificates.
+                Enter activity details and upload supporting certificates or documents.
               </p>
             </div>
 
@@ -261,11 +261,11 @@ export const LandingPage: React.FC = () => {
                 </span>
                 <span className="text-[11px] font-medium text-[#65758B]">Step 2 of 3</span>
               </div>
-              <h3 className="text-sm font-bold text-[#0B2945] pt-1">
-                Faculty members review submitted records
+              <h3 className="text-sm font-semibold text-[#0B2945] pt-1">
+                Faculty verification
               </h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Designated department faculty review submitted information, verify certificate authenticity, check event categorization, and record review remarks.
+                Department faculty verify document authenticity and enter remarks.
               </p>
             </div>
 
@@ -277,11 +277,11 @@ export const LandingPage: React.FC = () => {
                 </span>
                 <span className="text-[11px] font-medium text-[#65758B]">Step 3 of 3</span>
               </div>
-              <h3 className="text-sm font-bold text-[#0B2945] pt-1">
-                Records are verified into student profile
+              <h3 className="text-sm font-semibold text-[#0B2945] pt-1">
+                Verified portfolio
               </h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Approved records are marked as verified and permanently documented into the student&apos;s digital profile for NAAC criteria, resume generation, and semester appraisals.
+                Approved records are saved to the student profile for appraisals and reports.
               </p>
             </div>
           </div>
@@ -295,11 +295,11 @@ export const LandingPage: React.FC = () => {
             <span className="text-xs font-bold uppercase tracking-wider text-[#123B63]">
               CO-CURRICULAR & EXTRA-CURRICULAR
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#0B2945] mt-1">
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#0B2945] mt-1">
               Student Activities at KITS
             </h2>
             <p className="text-xs sm:text-sm text-[#65758B] mt-1">
-              Documenting student achievements across four key collegiate domains at KITS Ramtek.
+              Activity categories tracked in the portal.
             </p>
           </div>
 
@@ -309,12 +309,12 @@ export const LandingPage: React.FC = () => {
               <div className="w-8 h-8 rounded-[4px] bg-[#EAF2F8] text-[#123B63] flex items-center justify-center font-bold">
                 <Layers className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0B2945]">Technical Activities</h3>
+              <h3 className="text-sm font-semibold text-[#0B2945]">Technical Activities</h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Hackathons, National Technical Symposiums (such as SOFFI), coding challenges, project exhibitions, and technical paper presentations.
+                Workshops, hackathons, coding contests, project presentations, and seminars.
               </p>
               <div className="pt-1 text-[11px] text-[#123B63] font-medium border-t border-[#D9E0E7]">
-                National & State Competitions
+                Competitions & Workshops
               </div>
             </div>
 
@@ -323,12 +323,12 @@ export const LandingPage: React.FC = () => {
               <div className="w-8 h-8 rounded-[4px] bg-[#EAF2F8] text-[#123B63] flex items-center justify-center font-bold">
                 <User className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0B2945]">Clubs & Forums</h3>
+              <h3 className="text-sm font-semibold text-[#0B2945]">Clubs & Forums</h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Departmental student associations, professional society student branches (CSI, ISTE, IEEE), robotics clubs, and collegiate forums.
+                Department student forums, CSI, ISTE, IEEE, and campus technical clubs.
               </p>
               <div className="pt-1 text-[11px] text-[#123B63] font-medium border-t border-[#D9E0E7]">
-                Student-led Chapters & Forums
+                Student Chapters & Forums
               </div>
             </div>
 
@@ -337,12 +337,12 @@ export const LandingPage: React.FC = () => {
               <div className="w-8 h-8 rounded-[4px] bg-[#EAF2F8] text-[#123B63] flex items-center justify-center font-bold">
                 <Award className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0B2945]">Sports & Cultural</h3>
+              <h3 className="text-sm font-semibold text-[#0B2945]">Sports & Cultural</h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Annual Day & cultural festivals, inter-collegiate tournaments, university sports championships, debate, literary events, and NSS initiatives.
+                Annual festivals, university sports tournaments, cultural events, and NSS.
               </p>
               <div className="pt-1 text-[11px] text-[#123B63] font-medium border-t border-[#D9E0E7]">
-                University & Institutional Events
+                Sports & Cultural Gatherings
               </div>
             </div>
 
@@ -351,9 +351,9 @@ export const LandingPage: React.FC = () => {
               <div className="w-8 h-8 rounded-[4px] bg-[#EAF2F8] text-[#123B63] flex items-center justify-center font-bold">
                 <BookOpen className="w-4 h-4" />
               </div>
-              <h3 className="text-sm font-bold text-[#0B2945]">Research & Innovation</h3>
+              <h3 className="text-sm font-semibold text-[#0B2945]">Research & Innovation</h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Peer-reviewed research publications, conference presentations, student patents, industrial internships, and incubation prototypes.
+                Student publications, conference presentations, patents, and internships.
               </p>
               <div className="pt-1 text-[11px] text-[#123B63] font-medium border-t border-[#D9E0E7]">
                 Publications & Patents
@@ -371,11 +371,11 @@ export const LandingPage: React.FC = () => {
               <span className="text-xs font-bold uppercase tracking-wider text-[#123B63]">
                 CAMPUS HIGHLIGHTS
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#0B2945] mt-1">
+              <h2 className="text-xl sm:text-2xl font-semibold text-[#0B2945] mt-1">
                 Campus Activities & Events
               </h2>
               <p className="text-xs sm:text-sm text-[#65758B] mt-1">
-                Real student participation, technical symposiums, and cultural milestones at KITS Ramtek.
+                Student events and co-curricular programs at KITS Ramtek.
               </p>
             </div>
             <a
@@ -404,11 +404,11 @@ export const LandingPage: React.FC = () => {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#123B63] bg-[#EAF2F8] px-1.5 py-0.5 rounded-[3px]">
                   Technical Fest
                 </span>
-                <h4 className="text-xs font-bold text-[#0B2945] mt-1">
+                <h4 className="text-xs font-semibold text-[#0B2945] mt-1">
                   SOFFI National Symposium
                 </h4>
                 <p className="text-[11px] text-[#65758B] mt-0.5">
-                  Flagship annual technical event hosting inter-college coding & robotics challenges.
+                  Annual technical symposium with coding and robotics events.
                 </p>
               </div>
             </div>
@@ -427,11 +427,11 @@ export const LandingPage: React.FC = () => {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#287A55] bg-[#EAF5EE] px-1.5 py-0.5 rounded-[3px]">
                   Cultural
                 </span>
-                <h4 className="text-xs font-bold text-[#0B2945] mt-1">
+                <h4 className="text-xs font-semibold text-[#0B2945] mt-1">
                   Annual Day Celebrations
                 </h4>
                 <p className="text-[11px] text-[#65758B] mt-0.5">
-                  Institutional cultural gatherings celebrating artistic talents, drama, music and student honors.
+                  Annual college gathering featuring cultural and student events.
                 </p>
               </div>
             </div>
@@ -450,11 +450,11 @@ export const LandingPage: React.FC = () => {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#A66A00] bg-[#FEF7EB] px-1.5 py-0.5 rounded-[3px]">
                   Institutional
                 </span>
-                <h4 className="text-xs font-bold text-[#0B2945] mt-1">
+                <h4 className="text-xs font-semibold text-[#0B2945] mt-1">
                   Republic Day & NCC Parade
                 </h4>
                 <p className="text-[11px] text-[#65758B] mt-0.5">
-                  NCC, NSS, and institute-wide national celebrations fostering civic responsibility.
+                  National day celebrations and student parade.
                 </p>
               </div>
             </div>
@@ -473,11 +473,11 @@ export const LandingPage: React.FC = () => {
                 <span className="text-[10px] font-bold uppercase tracking-wider text-[#123B63] bg-[#EAF2F8] px-1.5 py-0.5 rounded-[3px]">
                   Alumni & Career
                 </span>
-                <h4 className="text-xs font-bold text-[#0B2945] mt-1">
+                <h4 className="text-xs font-semibold text-[#0B2945] mt-1">
                   Alumni Meet & Mentorship
                 </h4>
                 <p className="text-[11px] text-[#65758B] mt-0.5">
-                  Industry interaction sessions connecting enrolled students with esteemed global alumni.
+                  Alumni interaction and student mentoring sessions.
                 </p>
               </div>
             </div>
@@ -492,11 +492,11 @@ export const LandingPage: React.FC = () => {
             <span className="text-xs font-bold uppercase tracking-wider text-[#123B63]">
               PORTAL MODULES
             </span>
-            <h2 className="text-xl sm:text-2xl font-bold text-[#0B2945] mt-1">
+            <h2 className="text-xl sm:text-2xl font-semibold text-[#0B2945] mt-1">
               Stakeholder Portals
             </h2>
             <p className="text-xs sm:text-sm text-[#65758B] mt-1">
-              Dedicated interfaces tailored for student submissions and faculty appraisal workflows.
+              Dedicated access for students and faculty.
             </p>
           </div>
 
@@ -506,9 +506,9 @@ export const LandingPage: React.FC = () => {
               <div className="w-8 h-8 rounded-[4px] bg-[#EAF2F8] text-[#123B63] flex items-center justify-center font-bold">
                 <User className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-[#0B2945]">Student Portal</h3>
+              <h3 className="text-base font-semibold text-[#0B2945]">Student Portal</h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Log activities across technical workshops, coding contests, hackathons, sports, and cultural events. Upload verification proof, monitor review progress, and view verified records.
+                Submit activities, upload certificates, and track verification status.
               </p>
               <div className="pt-2">
                 <button
@@ -529,9 +529,9 @@ export const LandingPage: React.FC = () => {
               <div className="w-8 h-8 rounded-[4px] bg-[#EAF2F8] text-[#123B63] flex items-center justify-center font-bold">
                 <GraduationCap className="w-4 h-4" />
               </div>
-              <h3 className="text-base font-bold text-[#0B2945]">Faculty Verification Desk</h3>
+              <h3 className="text-base font-semibold text-[#0B2945]">Faculty Verification Desk</h3>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Review pending submissions in an administrative queue. Validate student credentials, inspect certificate proof, and mark submissions as Approved or Rejected with feedback.
+                Review pending student submissions, inspect certificates, and approve records.
               </p>
               <div className="pt-2">
                 <button
@@ -558,11 +558,11 @@ export const LandingPage: React.FC = () => {
               <span className="text-xs font-bold uppercase tracking-wider text-[#123B63]">
                 ADMINISTRATIVE NOTICES
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#0B2945] mt-1">
+              <h2 className="text-xl sm:text-2xl font-semibold text-[#0B2945] mt-1">
                 Latest Portal Updates
               </h2>
               <p className="text-xs sm:text-sm text-[#65758B] mt-1">
-                Official notices and activity submission deadlines for Academic Year 2025–26.
+                Notices and submission schedules for Academic Year 2025–26.
               </p>
             </div>
             <span className="text-[11px] font-medium text-[#65758B] bg-[#F5F7F9] px-2.5 py-1 rounded-[4px] border border-[#D9E0E7] self-start sm:self-auto">
@@ -585,7 +585,7 @@ export const LandingPage: React.FC = () => {
                   <td className="py-3 px-4">
                     <span className="font-semibold text-[#0B2945]">Student Activity Submission Open</span>
                     <p className="text-[#65758B] mt-0.5">
-                      Submissions for co-curricular participation in Odd Semester 2025–26 are now active.
+                      Submissions for the current academic session are now open.
                     </p>
                   </td>
                   <td className="py-3 px-4 text-right">
@@ -600,7 +600,7 @@ export const LandingPage: React.FC = () => {
                   <td className="py-3 px-4">
                     <span className="font-semibold text-[#0B2945]">Faculty Verification Guidelines Issued</span>
                     <p className="text-[#65758B] mt-0.5">
-                      Department review committees have updated criteria for technical paper and hackathon credits.
+                      Updated verification guidelines for technical and co-curricular credits.
                     </p>
                   </td>
                   <td className="py-3 px-4 text-right">
@@ -615,7 +615,7 @@ export const LandingPage: React.FC = () => {
                   <td className="py-3 px-4">
                     <span className="font-semibold text-[#0B2945]">Digital Certificate Verification Enabled</span>
                     <p className="text-[#65758B] mt-0.5">
-                      PDF and image certificate verification is active for inter-collegiate tournaments and symposiums.
+                      Support for PDF and image document previews is active.
                     </p>
                   </td>
                   <td className="py-3 px-4 text-right">
@@ -638,9 +638,9 @@ export const LandingPage: React.FC = () => {
               <span className="text-xs font-bold uppercase tracking-wider text-[#123B63]">
                 DOCUMENTATION
               </span>
-              <h2 className="text-xl font-bold text-[#0B2945]">Portal Guidelines</h2>
+              <h2 className="text-xl font-semibold text-[#0B2945]">Portal Guidelines</h2>
               <p className="text-xs text-[#65758B] leading-relaxed">
-                Review the submission rules and accepted documentation formats before uploading activity proofs.
+                Submission rules and accepted document formats for verification.
               </p>
               <div className="pt-2">
                 <button
@@ -656,42 +656,42 @@ export const LandingPage: React.FC = () => {
             <div className="lg:col-span-8">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 <div className="bg-white border border-[#D9E0E7] rounded-[5px] p-4 space-y-1.5">
-                  <h4 className="text-xs font-bold text-[#0B2945] flex items-center gap-1.5">
+                  <h4 className="text-xs font-semibold text-[#0B2945] flex items-center gap-1.5">
                     <FileCheck2 className="w-4 h-4 text-[#123B63]" />
                     Acceptable Document Formats
                   </h4>
                   <p className="text-xs text-[#65758B] leading-relaxed">
-                    Certificates must be clear scans or authentic digital PDFs / JPGs under 5MB. Ensure candidate name and event date are legible.
+                    Upload clear PDF, JPG, or PNG files under 5MB with visible name and date.
                   </p>
                 </div>
 
                 <div className="bg-white border border-[#D9E0E7] rounded-[5px] p-4 space-y-1.5">
-                  <h4 className="text-xs font-bold text-[#0B2945] flex items-center gap-1.5">
+                  <h4 className="text-xs font-semibold text-[#0B2945] flex items-center gap-1.5">
                     <Clock className="w-4 h-4 text-[#A66A00]" />
                     Review Timeline
                   </h4>
                   <p className="text-xs text-[#65758B] leading-relaxed">
-                    Department faculty committees review pending entries within 5 to 7 working days. Notifications appear on your student dashboard.
+                    Faculty committees review submissions within 5 to 7 working days.
                   </p>
                 </div>
 
                 <div className="bg-white border border-[#D9E0E7] rounded-[5px] p-4 space-y-1.5">
-                  <h4 className="text-xs font-bold text-[#0B2945] flex items-center gap-1.5">
+                  <h4 className="text-xs font-semibold text-[#0B2945] flex items-center gap-1.5">
                     <ShieldCheck className="w-4 h-4 text-[#287A55]" />
                     Integrity Standards
                   </h4>
                   <p className="text-xs text-[#65758B] leading-relaxed">
-                    Providing fraudulent documentation will lead to cancellation of co-curricular credits and disciplinary review as per institute code.
+                    Submitted records must be genuine and verifiable by the institution.
                   </p>
                 </div>
 
                 <div className="bg-white border border-[#D9E0E7] rounded-[5px] p-4 space-y-1.5">
-                  <h4 className="text-xs font-bold text-[#0B2945] flex items-center gap-1.5">
+                  <h4 className="text-xs font-semibold text-[#0B2945] flex items-center gap-1.5">
                     <Calendar className="w-4 h-4 text-[#123B63]" />
                     Semester Appraisals
                   </h4>
                   <p className="text-xs text-[#65758B] leading-relaxed">
-                    Verified records are automatically compiled into your official student profile for semester appraisals and placement verification.
+                    Verified entries count toward academic records, NAAC documentation, and placements.
                   </p>
                 </div>
               </div>

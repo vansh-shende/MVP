@@ -20,16 +20,16 @@ export const PublicNavbar: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo on Left: Real KITS Ramtek Official Emblem + Title */}
-          <Link to="/" className="flex items-center">
+          <Link to="/home" className="flex items-center">
             <CollegeLogo size="sm" showSubtitle={true} />
           </Link>
 
           {/* Navigation Links */}
           <nav className="hidden lg:flex items-center gap-7">
             <Link
-              to="/"
+              to="/home"
               className={`text-xs sm:text-sm font-medium transition-colors ${
-                location.pathname === '/' ? 'text-[#123B63] font-semibold' : 'text-[#65758B] hover:text-[#0B2945]'
+                location.pathname === '/home' || location.pathname === '/landing' ? 'text-[#123B63] font-semibold' : 'text-[#65758B] hover:text-[#0B2945]'
               }`}
             >
               Home
@@ -96,7 +96,7 @@ export const PublicNavbar: React.FC = () => {
         {mobileMenuOpen && (
           <div className="lg:hidden py-3 border-t border-[#D9E0E7] space-y-2 bg-white">
             <Link
-              to="/"
+              to="/home"
               onClick={() => setMobileMenuOpen(false)}
               className="block px-3 py-1.5 text-sm font-medium text-[#123B63]"
             >

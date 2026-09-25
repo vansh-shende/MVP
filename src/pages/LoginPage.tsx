@@ -61,15 +61,14 @@ export const LoginPage: React.FC = () => {
     <div className="min-h-screen bg-[#F5F7F9] text-[#243447] flex flex-col justify-between">
       {/* Top minimal bar */}
       <div className="max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex items-center justify-between border-b border-[#D9E0E7] bg-white">
-        <Link to="/">
+        <Link to="/home">
           <CollegeLogo size="sm" showSubtitle={true} />
         </Link>
         <Link
-          to="/"
-          className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#123B63] hover:text-[#0B2945] transition-colors"
+          to="/home"
+          className="text-xs sm:text-sm font-semibold text-[#123B63] hover:text-[#0B2945] transition-colors"
         >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          Back to Portal Home
+          Home
         </Link>
       </div>
 
