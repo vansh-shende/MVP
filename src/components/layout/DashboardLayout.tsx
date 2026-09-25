@@ -60,12 +60,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
   const sections = role === 'teacher' ? teacherSections : studentSections;
 
   return (
-    <div className="min-h-screen bg-[#F5F7F9] text-[#243447] flex flex-col font-sans">
+    <div className="h-screen flex flex-col bg-[#F5F7F9] text-[#243447] font-sans overflow-hidden">
       {/* Top Header */}
       <CollegeHeader onSearch={onSearch} searchPlaceholder={searchPlaceholder} />
 
       {/* Main Layout Container */}
-      <div className="flex-1 flex max-w-7xl w-full mx-auto">
+      <div className="flex-1 flex max-w-7xl w-full mx-auto overflow-hidden">
         {/* Mobile Sidebar Toggle Button */}
         <div className="lg:hidden fixed bottom-4 right-4 z-40">
           <button
@@ -82,7 +82,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
           fixed lg:static inset-y-0 left-0 z-40 w-60 bg-white border-r border-[#D9E0E7]
           transform transition-transform duration-150 ease-in-out lg:transform-none flex flex-col
           ${mobileSidebarOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
-          pt-4 pb-6 px-3 shrink-0
+          pt-4 pb-6 px-3 shrink-0 h-full overflow-y-auto
         `}>
           <div className="space-y-5">
             {sections.map((section) => (
@@ -141,7 +141,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
         )}
 
         {/* Page Content Viewport */}
-        <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-7">
+        <main className="flex-1 min-w-0 p-4 sm:p-6 lg:p-7 overflow-y-auto h-full">
           {children}
         </main>
       </div>
