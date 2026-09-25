@@ -66,33 +66,33 @@ export const VerificationPage: React.FC = () => {
         {/* Top Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#D9E0E7]">
           <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-[#0B2945] flex items-center gap-2">
+            <h1 className="text-[28px] sm:text-[30px] font-bold text-[#0B2945] flex items-center gap-2">
               <ShieldCheck className="w-5 h-5 text-[#123B63]" />
               Pending Submissions
             </h1>
-            <p className="text-xs sm:text-[13px] text-[#65758B] mt-0.5">
+            <p className="text-[14px] text-[#65758B] mt-0.5">
               Verify student activities, inspect proof documentation, and record approval or feedback remarks.
             </p>
           </div>
-          <span className="text-xs font-semibold px-2.5 py-1 bg-[#FEF7EB] text-[#A66A00] border border-[#F6DFC0] rounded-[4px] self-start sm:self-auto">
+          <span className="text-[14px] font-semibold px-2.5 py-1 bg-[#FEF7EB] text-[#A66A00] border border-[#F6DFC0] rounded-[4px] self-start sm:self-auto">
             {stats.teacherStats.pendingReviews} Awaiting Review
           </span>
         </div>
 
         {/* Action Feedback Banner */}
         {actionFeedback && (
-          <div className="p-3 bg-[#EAF5EE] border border-[#C6E7D5] rounded-[5px] flex items-center justify-between text-[#287A55] text-xs sm:text-sm font-medium">
+          <div className="p-3 bg-[#EAF5EE] border border-[#C6E7D5] rounded-[5px] flex items-center justify-between text-[#287A55] text-[15px] font-medium">
             <span className="flex items-center gap-2">
               <CheckCircle2 className="w-4 h-4 text-[#287A55]" />
               {actionFeedback}
             </span>
-            <span className="text-[11px] text-[#287A55]/80">Updated successfully</span>
+            <span className="text-[14px] text-[#287A55]/80">Updated successfully</span>
           </div>
         )}
 
         {/* Filter Controls Bar */}
         <div className="bg-white rounded-[6px] border border-[#D9E0E7] p-3 flex flex-col sm:flex-row items-stretch sm:items-center justify-between gap-3">
-          <div className="flex items-center gap-1.5 p-1 bg-[#F5F7F9] rounded-[4px] border border-[#D9E0E7] text-xs overflow-x-auto">
+          <div className="flex items-center gap-1.5 p-1 bg-[#F5F7F9] rounded-[4px] border border-[#D9E0E7] text-[14px] sm:text-[15px] overflow-x-auto">
             <button
               onClick={() => setFilterStatus('pending')}
               className={`px-3 py-1 font-medium rounded-[3px] whitespace-nowrap transition-all ${
@@ -142,7 +142,7 @@ export const VerificationPage: React.FC = () => {
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               placeholder="Search student or activity..."
-              className="w-full pl-8 pr-3 py-1.5 text-xs bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63]"
+              className="w-full pl-8 pr-3 py-1.5 text-[15px] sm:text-[16px] bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63]"
             />
           </div>
         </div>
@@ -151,9 +151,9 @@ export const VerificationPage: React.FC = () => {
         <div className="bg-white rounded-[6px] border border-[#D9E0E7] overflow-hidden">
           {filtered.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
+              <table className="w-full text-left text-[15px]">
                 <thead>
-                  <tr className="bg-[#F5F7F9] border-b border-[#D9E0E7] text-[#65758B] font-semibold">
+                  <tr className="bg-[#F5F7F9] border-b border-[#D9E0E7] text-[#65758B] font-semibold text-[14px]">
                     <th className="py-2.5 px-4">Student Name</th>
                     <th className="py-2.5 px-4">Activity Title</th>
                     <th className="py-2.5 px-4">Category</th>
@@ -168,17 +168,17 @@ export const VerificationPage: React.FC = () => {
                     <tr key={sub.id} className="hover:bg-[#F5F7F9] transition-colors">
                       {/* Student Name */}
                       <td className="py-3 px-4 whitespace-nowrap">
-                        <p className="font-semibold text-[#0B2945] text-xs sm:text-[13px]">{sub.studentName}</p>
-                        <p className="text-[11px] text-[#65758B] font-mono">
+                        <p className="font-semibold text-[#0B2945] text-[15px]">{sub.studentName}</p>
+                        <p className="text-[14px] text-[#65758B] font-mono">
                           {sub.studentRoll ? `Roll: ${sub.studentRoll}` : 'Roll: ITXXXX'}
                         </p>
                       </td>
 
                       {/* Activity Title */}
                       <td className="py-3 px-4">
-                        <p className="font-semibold text-[#0B2945]">{sub.title}</p>
+                        <p className="font-semibold text-[#0B2945] text-[15px]">{sub.title}</p>
                         {(sub.organizingInstitution || sub.eventOrOrg) && (
-                          <p className="text-[11px] text-[#65758B]">
+                          <p className="text-[14px] text-[#65758B]">
                             {sub.organizingInstitution || sub.eventOrOrg}
                           </p>
                         )}
@@ -186,18 +186,18 @@ export const VerificationPage: React.FC = () => {
 
                       {/* Category */}
                       <td className="py-3 px-4 whitespace-nowrap">
-                        <span className="inline-block px-2 py-0.5 rounded-[4px] bg-[#F5F7F9] border border-[#D9E0E7] text-[#243447] text-[11px]">
+                        <span className="inline-block px-2 py-0.5 rounded-[4px] bg-[#F5F7F9] border border-[#D9E0E7] text-[#243447] text-[13px] sm:text-[14px]">
                           {sub.category || sub.type || 'Activity'}
                         </span>
                       </td>
 
                       {/* Level */}
-                      <td className="py-3 px-4 whitespace-nowrap font-medium text-[#243447]">
+                      <td className="py-3 px-4 whitespace-nowrap font-medium text-[#243447] text-[15px]">
                         {sub.level || 'College'}
                       </td>
 
                       {/* Date Submitted */}
-                      <td className="py-3 px-4 whitespace-nowrap font-mono text-[#65758B] text-[11px]">
+                      <td className="py-3 px-4 whitespace-nowrap font-mono text-[#65758B] text-[14px]">
                         {sub.submittedAt || sub.dateSubmitted || sub.date}
                       </td>
 
@@ -211,7 +211,7 @@ export const VerificationPage: React.FC = () => {
                         <button
                           type="button"
                           onClick={() => setSelectedSubForReview(sub)}
-                          className="px-3 py-1.5 bg-[#123B63] hover:bg-[#0B2945] text-white font-semibold rounded-[5px] text-xs transition-colors"
+                          className="px-3.5 py-1.5 bg-[#123B63] hover:bg-[#0B2945] text-white font-semibold rounded-[5px] text-[15px] transition-colors"
                         >
                           Review
                         </button>
@@ -222,10 +222,10 @@ export const VerificationPage: React.FC = () => {
               </table>
             </div>
           ) : (
-            <div className="py-12 text-center text-[#65758B] text-xs">
+            <div className="py-12 text-center text-[#65758B] text-[14px]">
               <Clock className="w-7 h-7 text-[#65758B] mx-auto mb-1.5" />
-              <p className="font-semibold text-[#0B2945] text-sm">No pending submissions to review.</p>
-              <p className="text-[#65758B] mt-0.5">
+              <p className="font-semibold text-[#0B2945] text-[16px]">No pending submissions to review.</p>
+              <p className="text-[#65758B] mt-0.5 text-[14px]">
                 {filterStatus === 'pending'
                   ? 'All student submissions have been evaluated.'
                   : 'No submissions match your selected filter.'}

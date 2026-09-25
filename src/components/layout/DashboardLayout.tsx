@@ -88,7 +88,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
             {sections.map((section) => (
               <div key={section.title}>
                 {/* Small uppercase section label */}
-                <h3 className="px-2.5 text-[11px] font-bold text-[#65758B] tracking-wider uppercase mb-1.5">
+                <h3 className="px-2.5 text-[12px] font-bold text-[#65758B] tracking-wider uppercase mb-1.5">
                   {section.title}
                 </h3>
                 <div className="space-y-1">
@@ -100,7 +100,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
                         to={item.path}
                         onClick={() => setMobileSidebarOpen(false)}
                         className={({ isActive }) => `
-                          flex items-center gap-2.5 px-2.5 py-2 rounded-[5px] text-xs sm:text-[13px] font-medium transition-colors
+                          flex items-center gap-2.5 px-2.5 py-2 rounded-[5px] text-[15px] font-medium transition-colors
                           ${isActive
                             ? 'bg-[#EAF2F8] text-[#123B63] font-semibold border-l-2 border-[#123B63]'
                             : 'text-[#243447] hover:bg-[#F5F7F9] hover:text-[#0B2945]'
@@ -119,12 +119,12 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
 
           {/* Account Section with Logout */}
           <div className="mt-auto pt-4 border-t border-[#D9E0E7]">
-            <h3 className="px-2.5 text-[11px] font-bold text-[#65758B] tracking-wider uppercase mb-1.5">
+            <h3 className="px-2.5 text-[12px] font-bold text-[#65758B] tracking-wider uppercase mb-1.5">
               ACCOUNT
             </h3>
             <button
               onClick={handleLogout}
-              className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-[5px] text-xs sm:text-[13px] font-medium text-[#243447] hover:text-[#B33A3A] hover:bg-[#FDF2F2] transition-colors text-left"
+              className="w-full flex items-center gap-2.5 px-2.5 py-2 rounded-[5px] text-[15px] font-medium text-[#243447] hover:text-[#B33A3A] hover:bg-[#FDF2F2] transition-colors text-left"
             >
               <LogOut className="w-4 h-4 shrink-0 text-[#65758B]" />
               <span>Logout</span>

@@ -10,7 +10,21 @@
     color: #243447;
     background-color: #F5F7F9;
     font-size: 15px;
-    line-height: 1.5;
+    line-height: 1.55;
+  }
+
+  /* Form inputs & controls institutional typography */
+  input, select, textarea {
+    font-size: 16px;
+    font-family: Calibri, Arial, sans-serif;
+  }
+
+  label {
+    font-size: 15px;
+  }
+
+  button {
+    font-family: Calibri, Arial, sans-serif;
   }
 
   h1, h2, h3, h4, h5, h6 {

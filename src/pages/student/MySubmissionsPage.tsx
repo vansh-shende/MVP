@@ -49,17 +49,17 @@ export const MySubmissionsPage: React.FC = () => {
         {/* Top Header */}
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-[#D9E0E7]">
           <div>
-            <h1 className="text-xl sm:text-2xl font-bold text-[#0B2945]">
+            <h1 className="text-[28px] sm:text-[30px] font-bold text-[#0B2945]">
               My Submissions
             </h1>
-            <p className="text-xs sm:text-[13px] text-[#65758B] mt-0.5">
+            <p className="text-[14px] text-[#65758B] mt-0.5">
               Review your recorded college activities and current verification status.
             </p>
           </div>
 
           <button
             onClick={() => navigate('/student/add-activity')}
-            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#123B63] hover:bg-[#0B2945] text-white font-semibold text-xs rounded-[5px] transition-colors self-start sm:self-auto"
+            className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#123B63] hover:bg-[#0B2945] text-white font-semibold text-[15px] sm:text-[16px] rounded-[5px] transition-colors self-start sm:self-auto"
           >
             <PlusCircle className="w-4 h-4" />
             Add Activity
@@ -70,11 +70,11 @@ export const MySubmissionsPage: React.FC = () => {
         <div className="bg-white rounded-[6px] border border-[#D9E0E7] p-3.5 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div className="flex items-center gap-2">
             <Filter className="w-3.5 h-3.5 text-[#65758B]" />
-            <span className="text-xs font-semibold text-[#243447]">Filter Category:</span>
+            <span className="text-[15px] font-semibold text-[#243447]">Filter Category:</span>
             <select
               value={filterCategory}
               onChange={(e) => setFilterCategory(e.target.value)}
-              className="p-1.5 text-xs bg-[#F5F7F9] border border-[#D9E0E7] rounded-[4px] text-[#243447] focus:outline-hidden focus:border-[#123B63]"
+              className="p-1.5 text-[15px] sm:text-[16px] bg-[#F5F7F9] border border-[#D9E0E7] rounded-[4px] text-[#243447] focus:outline-hidden focus:border-[#123B63]"
             >
               <option value="All">All Categories ({studentSubs.length})</option>
               <option value="Hackathon">Hackathon</option>
@@ -87,7 +87,7 @@ export const MySubmissionsPage: React.FC = () => {
             </select>
           </div>
 
-          <div className="text-xs text-[#65758B]">
+          <div className="text-[14px] text-[#65758B]">
             Showing <strong className="text-[#0B2945]">{filteredSubs.length}</strong> of{' '}
             <strong className="text-[#0B2945]">{studentSubs.length}</strong> activities
           </div>
@@ -97,9 +97,9 @@ export const MySubmissionsPage: React.FC = () => {
         <div className="bg-white rounded-[6px] border border-[#D9E0E7] overflow-hidden">
           {filteredSubs.length > 0 ? (
             <div className="overflow-x-auto">
-              <table className="w-full text-left text-xs">
+              <table className="w-full text-left text-[15px]">
                 <thead>
-                  <tr className="bg-[#F5F7F9] border-b border-[#D9E0E7] text-[#65758B] font-semibold">
+                  <tr className="bg-[#F5F7F9] border-b border-[#D9E0E7] text-[#65758B] font-semibold text-[14px]">
                     <th className="py-2.5 px-4">Activity Title</th>
                     <th className="py-2.5 px-4">Category</th>
                     <th className="py-2.5 px-4">Level</th>
@@ -121,10 +121,10 @@ export const MySubmissionsPage: React.FC = () => {
                         >
                           {/* Activity Title */}
                           <td className="py-3 px-4">
-                            <p className="font-semibold text-[#0B2945] hover:text-[#123B63] transition-colors">
+                            <p className="font-semibold text-[#0B2945] hover:text-[#123B63] transition-colors text-[15px]">
                               {sub.title}
                             </p>
-                            <p className="text-[11px] text-[#65758B] mt-0.5 truncate max-w-xs">
+                            <p className="text-[14px] text-[#65758B] mt-0.5 truncate max-w-xs">
                               {sub.organizingInstitution || sub.eventOrOrg || 'KITS Ramtek'}
                               {sub.role ? ` · Role: ${sub.role}` : ''}
                             </p>
@@ -132,18 +132,18 @@ export const MySubmissionsPage: React.FC = () => {
 
                           {/* Category */}
                           <td className="py-3 px-4 whitespace-nowrap">
-                            <span className="inline-block px-2 py-0.5 rounded-[4px] bg-[#F5F7F9] border border-[#D9E0E7] text-[#243447] text-[11px] font-medium">
+                            <span className="inline-block px-2 py-0.5 rounded-[4px] bg-[#F5F7F9] border border-[#D9E0E7] text-[#243447] text-[13px] sm:text-[14px] font-medium">
                               {sub.category}
                             </span>
                           </td>
 
                           {/* Level */}
-                          <td className="py-3 px-4 whitespace-nowrap text-[#243447] font-medium">
+                          <td className="py-3 px-4 whitespace-nowrap text-[#243447] font-medium text-[15px]">
                             {sub.level || 'College'}
                           </td>
 
                           {/* Date */}
-                          <td className="py-3 px-4 whitespace-nowrap text-[#65758B] font-mono text-[11px]">
+                          <td className="py-3 px-4 whitespace-nowrap text-[#65758B] font-mono text-[14px]">
                             {sub.date || sub.dateSubmitted}
                           </td>
 
@@ -160,7 +160,7 @@ export const MySubmissionsPage: React.FC = () => {
                                 e.stopPropagation();
                                 setSelectedSubmission(sub);
                               }}
-                              className="inline-flex items-center gap-1 text-[11px] font-semibold text-[#123B63] hover:text-[#0B2945] bg-[#EAF2F8] px-2.5 py-1 rounded-[4px] border border-[#D9E0E7] transition-colors"
+                              className="inline-flex items-center gap-1 text-[14px] sm:text-[15px] font-semibold text-[#123B63] hover:text-[#0B2945] bg-[#EAF2F8] px-2.5 py-1 rounded-[4px] border border-[#D9E0E7] transition-colors"
                             >
                               <Eye className="w-3.5 h-3.5" />
                               View
@@ -171,7 +171,7 @@ export const MySubmissionsPage: React.FC = () => {
                         {/* Teacher Remark Banner if present */}
                         {remarkText && (
                           <tr className={isRejected ? "bg-[#FDF2F2]" : "bg-[#EAF2F8]/60"}>
-                            <td colSpan={6} className={`px-4 py-2 text-xs border-b ${isRejected ? "text-[#B33A3A] border-[#F7C8C8]" : "text-[#123B63] border-[#D9E0E7]"}`}>
+                            <td colSpan={6} className={`px-4 py-2 text-[14px] border-b ${isRejected ? "text-[#B33A3A] border-[#F7C8C8]" : "text-[#123B63] border-[#D9E0E7]"}`}>
                               <div className="flex items-start gap-2">
                                 {isRejected ? (
                                   <AlertTriangle className="w-3.5 h-3.5 text-[#B33A3A] shrink-0 mt-0.5" />
@@ -198,17 +198,17 @@ export const MySubmissionsPage: React.FC = () => {
               <div className="w-10 h-10 rounded-[4px] bg-[#F5F7F9] text-[#65758B] flex items-center justify-center mx-auto mb-2 border border-[#D9E0E7]">
                 <FileText className="w-5 h-5" />
               </div>
-              <h3 className="text-sm font-bold text-[#0B2945]">
+              <h3 className="text-[16px] font-bold text-[#0B2945]">
                 No activities submitted yet.
               </h3>
-              <p className="text-xs text-[#65758B] mt-0.5 max-w-sm mx-auto">
+              <p className="text-[14px] text-[#65758B] mt-0.5 max-w-sm mx-auto">
                 Record your workshops, hackathons, sports and certifications to accumulate verified portfolio credits.
               </p>
               <div className="mt-3.5">
                 <button
                   type="button"
                   onClick={() => navigate('/student/add-activity')}
-                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#123B63] hover:bg-[#0B2945] text-white font-semibold text-xs rounded-[5px] transition-colors"
+                  className="inline-flex items-center gap-1.5 px-4 py-2 bg-[#123B63] hover:bg-[#0B2945] text-white font-semibold text-[14px] sm:text-[15px] rounded-[5px] transition-colors"
                 >
                   <PlusCircle className="w-4 h-4" />
                   Add Activity

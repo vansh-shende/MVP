@@ -85,7 +85,7 @@ export const LandingPage: React.FC = () => {
               <div className="flex flex-wrap items-center gap-3 pt-3">
                 <button
                   onClick={handleLoginClick}
-                  className="px-5 py-2.5 text-xs sm:text-sm font-semibold text-white bg-[#123B63] hover:bg-[#0B2945] rounded-[5px] transition-colors inline-flex items-center gap-2 shadow-xs cursor-pointer"
+                  className="px-5 py-2.5 text-[14px] sm:text-[15px] font-semibold text-white bg-[#123B63] hover:bg-[#0B2945] rounded-[5px] transition-colors inline-flex items-center gap-2 shadow-xs cursor-pointer"
                 >
                   Login to Portal
                   <ArrowRight className="w-4 h-4" />
@@ -93,14 +93,14 @@ export const LandingPage: React.FC = () => {
 
                 <button
                   onClick={() => scrollToSection('how-it-works')}
-                  className="px-5 py-2.5 text-xs sm:text-sm font-semibold text-[#123B63] bg-white hover:bg-[#F5F7F9] rounded-[5px] border border-[#D9E0E7] transition-colors cursor-pointer"
+                  className="px-5 py-2.5 text-[14px] sm:text-[15px] font-semibold text-[#123B63] bg-white hover:bg-[#F5F7F9] rounded-[5px] border border-[#D9E0E7] transition-colors cursor-pointer"
                 >
                   How It Works
                 </button>
 
                 <button
                   onClick={() => setShowGuidelinesModal(true)}
-                  className="px-4 py-2.5 text-xs sm:text-sm font-medium text-[#65758B] hover:text-[#0B2945] transition-colors cursor-pointer"
+                  className="px-4 py-2.5 text-[14px] sm:text-[15px] font-medium text-[#65758B] hover:text-[#0B2945] transition-colors cursor-pointer"
                 >
                   Submission Guidelines →
                 </button>

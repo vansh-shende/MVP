@@ -53,7 +53,7 @@ export const CollegeHeader: React.FC<CollegeHeaderProps> = ({
               value={searchVal}
               onChange={handleSearchChange}
               placeholder={searchPlaceholder}
-              className="w-full pl-9 pr-3.5 py-1.5 bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] text-xs sm:text-sm text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63] focus:bg-white transition-all"
+              className="w-full pl-9 pr-3.5 py-1.5 bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] text-[15px] sm:text-[16px] text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63] focus:bg-white transition-all"
             />
           </div>
         </div>
@@ -68,34 +68,34 @@ export const CollegeHeader: React.FC<CollegeHeaderProps> = ({
               aria-label="Notifications"
             >
               <Bell className="w-4 h-4 text-[#243447]" />
-              <span className="absolute top-1 right-1 w-3.5 h-3.5 text-[9px] font-bold text-white bg-[#B33A3A] rounded-full flex items-center justify-center">
+              <span className="absolute top-1 right-1 w-3.5 h-3.5 text-[10px] font-bold text-white bg-[#B33A3A] rounded-full flex items-center justify-center">
                 2
               </span>
             </button>
 
             {/* Notifications Dropdown */}
             {notificationsOpen && (
-              <div className="absolute right-0 mt-2 w-72 bg-white border border-[#D9E0E7] rounded-[6px] shadow-sm py-2 z-50 text-xs">
+              <div className="absolute right-0 mt-2 w-72 bg-white border border-[#D9E0E7] rounded-[6px] shadow-sm py-2 z-50 text-[14px]">
                 <div className="px-3 py-2 border-b border-[#D9E0E7] flex items-center justify-between">
-                  <span className="font-semibold text-[#0B2945]">Notifications</span>
-                  <span className="text-[#65758B] text-[11px]">2 New</span>
+                  <span className="font-semibold text-[#0B2945] text-[15px]">Notifications</span>
+                  <span className="text-[#65758B] text-[13px]">2 New</span>
                 </div>
                 <div className="divide-y divide-[#D9E0E7]/60">
                   <div className="px-3 py-2.5 hover:bg-[#F5F7F9] transition-colors cursor-pointer">
-                    <p className="font-medium text-[#0B2945]">Workshop Record Approved</p>
-                    <p className="text-[#65758B] text-[11px] mt-0.5">Faculty Mrs. Harshita Jain approved your activity</p>
-                    <span className="text-[10px] text-[#65758B] mt-1 inline-block">2 hours ago</span>
+                    <p className="font-medium text-[#0B2945] text-[14px] sm:text-[15px]">Workshop Record Approved</p>
+                    <p className="text-[#65758B] text-[14px] mt-0.5">Faculty Mrs. Harshita Jain approved your activity</p>
+                    <span className="text-[13px] text-[#65758B] mt-1 inline-block">2 hours ago</span>
                   </div>
                   <div className="px-3 py-2.5 hover:bg-[#F5F7F9] transition-colors cursor-pointer">
-                    <p className="font-medium text-[#0B2945]">Submission Under Review</p>
-                    <p className="text-[#65758B] text-[11px] mt-0.5">Code Rush Hackathon submission received</p>
-                    <span className="text-[10px] text-[#65758B] mt-1 inline-block">1 day ago</span>
+                    <p className="font-medium text-[#0B2945] text-[14px] sm:text-[15px]">Submission Under Review</p>
+                    <p className="text-[#65758B] text-[14px] mt-0.5">Code Rush Hackathon submission received</p>
+                    <span className="text-[13px] text-[#65758B] mt-1 inline-block">1 day ago</span>
                   </div>
                 </div>
                 <div className="px-3 pt-2 text-center border-t border-[#D9E0E7]">
                   <button
                     onClick={() => setNotificationsOpen(false)}
-                    className="text-[#123B63] hover:text-[#0B2945] font-medium"
+                    className="text-[#123B63] hover:text-[#0B2945] font-semibold text-[14px]"
                   >
                     Close
                   </button>
@@ -110,16 +110,16 @@ export const CollegeHeader: React.FC<CollegeHeaderProps> = ({
               onClick={() => setDropdownOpen(!dropdownOpen)}
               className="flex items-center gap-2.5 px-2.5 py-1.5 rounded-[5px] bg-[#F5F7F9] border border-[#D9E0E7] hover:border-[#BCC8D4] transition-colors text-left"
             >
-              <div className="w-6 h-6 rounded-[3px] bg-[#123B63] text-white flex items-center justify-center font-bold text-[11px]">
+              <div className="w-6 h-6 rounded-[3px] bg-[#123B63] text-white flex items-center justify-center font-bold text-[12px]">
                 {currentUser?.name
                   ? currentUser.name.split(' ').map(n => n[0]).join('').slice(0, 2)
                   : 'US'}
               </div>
               <div className="hidden sm:block leading-tight">
-                <p className="text-xs font-semibold text-[#0B2945]">
+                <p className="text-[15px] font-semibold text-[#0B2945]">
                   {currentUser?.name || 'Vansh Shende'}
                 </p>
-                <p className="text-[10px] text-[#65758B] uppercase font-medium">
+                <p className="text-[13px] text-[#65758B] uppercase font-medium">
                   {role === 'teacher' ? 'Faculty' : 'Student'}
                 </p>
               </div>
@@ -128,11 +128,11 @@ export const CollegeHeader: React.FC<CollegeHeaderProps> = ({
 
             {/* Profile Dropdown */}
             {dropdownOpen && (
-              <div className="absolute right-0 mt-2 w-56 bg-white border border-[#D9E0E7] rounded-[6px] shadow-sm py-1 z-50 text-xs">
+              <div className="absolute right-0 mt-2 w-56 bg-white border border-[#D9E0E7] rounded-[6px] shadow-sm py-1 z-50 text-[14px]">
                 <div className="px-3 py-2 border-b border-[#D9E0E7]">
-                  <p className="font-semibold text-[#0B2945]">{currentUser?.name}</p>
-                  <p className="text-[11px] text-[#65758B] truncate">{currentUser?.email}</p>
-                  <p className="text-[11px] text-[#123B63] font-medium mt-0.5">
+                  <p className="font-semibold text-[#0B2945] text-[15px]">{currentUser?.name}</p>
+                  <p className="text-[14px] text-[#65758B] truncate">{currentUser?.email}</p>
+                  <p className="text-[14px] text-[#123B63] font-medium mt-0.5">
                     {role === 'teacher' ? 'KITS Faculty' : `Roll No: ${currentUser?.rollNumber || 'ITXXXX'}`}
                   </p>
                 </div>

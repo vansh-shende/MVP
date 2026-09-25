@@ -66,7 +66,7 @@ export const LoginPage: React.FC = () => {
         </Link>
         <Link
           to="/home"
-          className="text-xs sm:text-sm font-semibold text-[#123B63] hover:text-[#0B2945] transition-colors"
+          className="text-[15px] sm:text-[16px] font-semibold text-[#123B63] hover:text-[#0B2945] transition-colors"
         >
           Home
         </Link>
@@ -78,13 +78,13 @@ export const LoginPage: React.FC = () => {
           {/* Left: Login Form */}
           <div className="lg:col-span-7 p-6 sm:p-8 flex flex-col justify-center">
             <div className="mb-5">
-              <span className="text-[11px] font-bold text-[#65758B] uppercase tracking-wider">
+              <span className="text-[13px] sm:text-[14px] font-bold text-[#65758B] uppercase tracking-wider">
                 Institutional Access
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-[#0B2945] mt-0.5">
+              <h2 className="text-[28px] sm:text-[30px] font-bold text-[#0B2945] mt-0.5">
                 Portal Login
               </h2>
-              <p className="text-xs sm:text-[13px] text-[#65758B] mt-1">
+              <p className="text-[14px] text-[#65758B] mt-1">
                 Enter your college credentials to access your student or faculty account.
               </p>
             </div>
@@ -94,26 +94,26 @@ export const LoginPage: React.FC = () => {
               <button
                 type="button"
                 onClick={() => handleRoleChange('student')}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs font-semibold rounded-[4px] transition-all ${
+                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-[15px] font-semibold rounded-[4px] transition-all ${
                   activeRole === 'student'
                     ? 'bg-[#123B63] text-white shadow-xs'
                     : 'text-[#65758B] hover:text-[#0B2945]'
                 }`}
               >
-                <GraduationCap className="w-3.5 h-3.5" />
+                <GraduationCap className="w-4 h-4" />
                 Student
               </button>
 
               <button
                 type="button"
                 onClick={() => handleRoleChange('teacher')}
-                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-xs font-semibold rounded-[4px] transition-all ${
+                className={`flex-1 flex items-center justify-center gap-1.5 py-1.5 text-[15px] font-semibold rounded-[4px] transition-all ${
                   activeRole === 'teacher'
                     ? 'bg-[#123B63] text-white shadow-xs'
                     : 'text-[#65758B] hover:text-[#0B2945]'
                 }`}
               >
-                <User className="w-3.5 h-3.5" />
+                <User className="w-4 h-4" />
                 Faculty
               </button>
             </div>
@@ -121,7 +121,7 @@ export const LoginPage: React.FC = () => {
             <form onSubmit={handleSubmit} className="space-y-3.5">
               {/* Email / ID */}
               <div>
-                <label className="block text-[13px] font-medium text-[#243447] mb-1">
+                <label className="block text-[15px] font-medium text-[#243447] mb-1">
                   {activeRole === 'student' ? 'Student Email / Roll No' : 'Faculty Email / Employee ID'}
                 </label>
                 <div className="relative">
@@ -132,14 +132,14 @@ export const LoginPage: React.FC = () => {
                     value={emailOrId}
                     onChange={(e) => setEmailOrId(e.target.value)}
                     placeholder={activeRole === 'student' ? 'vshende719@gmail.com' : 'faculty@kits.edu'}
-                    className="w-full h-[42px] pl-9 pr-3 text-xs sm:text-sm bg-white border border-[#D9E0E7] rounded-[5px] text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63]"
+                    className="w-full h-[42px] pl-9 pr-3 text-[16px] bg-white border border-[#D9E0E7] rounded-[5px] text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63]"
                   />
                 </div>
               </div>
 
               {/* Password */}
               <div>
-                <label className="block text-[13px] font-medium text-[#243447] mb-1">
+                <label className="block text-[15px] font-medium text-[#243447] mb-1">
                   Password
                 </label>
                 <div className="relative">
@@ -150,7 +150,7 @@ export const LoginPage: React.FC = () => {
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     placeholder="Enter your password"
-                    className="w-full h-[42px] pl-9 pr-9 text-xs sm:text-sm bg-white border border-[#D9E0E7] rounded-[5px] text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63]"
+                    className="w-full h-[42px] pl-9 pr-9 text-[16px] bg-white border border-[#D9E0E7] rounded-[5px] text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63]"
                   />
                   <button
                     type="button"
@@ -163,7 +163,7 @@ export const LoginPage: React.FC = () => {
               </div>
 
               {/* Remember me & Forgot */}
-              <div className="flex items-center justify-between text-xs pt-0.5">
+              <div className="flex items-center justify-between text-[14px] pt-0.5">
                 <label className="flex items-center gap-1.5 cursor-pointer text-[#65758B]">
                   <input
                     type="checkbox"
@@ -181,7 +181,7 @@ export const LoginPage: React.FC = () => {
               {/* Login Button */}
               <button
                 type="submit"
-                className="w-full h-[42px] bg-[#123B63] hover:bg-[#0B2945] text-white font-semibold text-xs sm:text-sm rounded-[5px] transition-colors flex items-center justify-center gap-1.5 mt-2"
+                className="w-full h-[42px] bg-[#123B63] hover:bg-[#0B2945] text-white font-semibold text-[15px] sm:text-[16px] rounded-[5px] transition-colors flex items-center justify-center gap-1.5 mt-2"
               >
                 Login to Portal
                 <ArrowRight className="w-4 h-4" />
@@ -190,21 +190,21 @@ export const LoginPage: React.FC = () => {
 
             {/* Quick Demo Logins Helper */}
             <div className="mt-5 pt-4 border-t border-[#D9E0E7] space-y-2">
-              <p className="text-[11px] text-[#65758B] text-center font-medium">
+              <p className="text-[14px] text-[#65758B] text-center font-medium">
                 Quick Demonstration Access:
               </p>
               <div className="grid grid-cols-2 gap-2">
                 <button
                   type="button"
                   onClick={handleQuickStudent}
-                  className="px-2.5 py-1.5 text-xs font-semibold text-[#123B63] bg-[#EAF2F8] hover:bg-[#D9E0E7] border border-[#D9E0E7] rounded-[5px] transition-colors text-center"
+                  className="px-2.5 py-1.5 text-[14px] sm:text-[15px] font-semibold text-[#123B63] bg-[#EAF2F8] hover:bg-[#D9E0E7] border border-[#D9E0E7] rounded-[5px] transition-colors text-center"
                 >
                   Student (Vansh Shende)
                 </button>
                 <button
                   type="button"
                   onClick={handleQuickTeacher}
-                  className="px-2.5 py-1.5 text-xs font-semibold text-[#287A55] bg-[#EAF5EE] hover:bg-[#C6E7D5] border border-[#C6E7D5] rounded-[5px] transition-colors text-center"
+                  className="px-2.5 py-1.5 text-[14px] sm:text-[15px] font-semibold text-[#287A55] bg-[#EAF5EE] hover:bg-[#C6E7D5] border border-[#C6E7D5] rounded-[5px] transition-colors text-center"
                 >
                   Faculty (Mrs. Harshita Jain)
                 </button>
@@ -222,24 +222,24 @@ export const LoginPage: React.FC = () => {
                   className="h-full w-auto object-contain"
                 />
               </div>
-              <h3 className="text-base font-bold text-[#0B2945] leading-snug">
+              <h3 className="text-[21px] sm:text-[22px] font-bold text-[#0B2945] leading-snug">
                 {COLLEGE_INFO.name}
               </h3>
-              <p className="text-xs text-[#65758B] leading-relaxed">
+              <p className="text-[14px] sm:text-[15px] text-[#65758B] leading-relaxed">
                 Department of Information Technology · Centralized student activity recording and evaluation portal.
               </p>
             </div>
 
-            <div className="my-6 bg-white p-4 rounded-[5px] border border-[#D9E0E7] space-y-2 text-xs">
-              <p className="font-semibold text-[#0B2945]">System Guidelines</p>
-              <ul className="text-[#65758B] space-y-1 text-[11px] list-disc list-inside">
+            <div className="my-6 bg-white p-4 rounded-[5px] border border-[#D9E0E7] space-y-2 text-[14px]">
+              <p className="font-semibold text-[#0B2945] text-[15px] sm:text-[16px]">System Guidelines</p>
+              <ul className="text-[#65758B] space-y-1 text-[14px] list-disc list-inside">
                 <li>Submit authentic certificates for review</li>
                 <li>Track verification status in real time</li>
                 <li>Review faculty feedback remarks</li>
               </ul>
             </div>
 
-            <div className="text-[11px] text-[#65758B] border-t border-[#D9E0E7] pt-3">
+            <div className="text-[13px] sm:text-[14px] text-[#65758B] border-t border-[#D9E0E7] pt-3">
               KITS Ramtek · Ramtek, Nagpur 441106
             </div>
           </div>

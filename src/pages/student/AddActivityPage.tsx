@@ -236,11 +236,11 @@ export const AddActivityPage: React.FC = () => {
               >
                 <ArrowLeft className="w-5 h-5" />
               </button>
-              <h1 className="text-xl sm:text-2xl font-bold text-[#0B2945]">
+              <h1 className="text-[28px] sm:text-[30px] font-bold text-[#0B2945]">
                 Add Activity / Achievement
               </h1>
             </div>
-            <p className="text-xs sm:text-[13px] text-[#65758B] mt-0.5 ml-8">
+            <p className="text-[14px] text-[#65758B] mt-0.5 ml-8">
               Add details of an activity, achievement or participation record for departmental review.
             </p>
           </div>
@@ -248,7 +248,7 @@ export const AddActivityPage: React.FC = () => {
 
         {/* Success Alert */}
         {successMessage && (
-          <div className="p-3.5 bg-[#EAF5EE] border border-[#C6E7D5] rounded-[5px] flex items-center gap-2.5 text-[#287A55] text-xs sm:text-sm font-medium">
+          <div className="p-3.5 bg-[#EAF5EE] border border-[#C6E7D5] rounded-[5px] flex items-center gap-2.5 text-[#287A55] text-[15px] font-medium">
             <CheckCircle2 className="w-4 h-4 text-[#287A55] shrink-0" />
             <span>{successMessage} Redirecting to My Submissions...</span>
           </div>
@@ -258,7 +258,7 @@ export const AddActivityPage: React.FC = () => {
         <form onSubmit={handleSubmit} className="bg-white rounded-[6px] border border-[#D9E0E7] p-5 sm:p-7 space-y-4">
           {/* Field: Activity Title */}
           <div>
-            <label className="block text-[13px] font-medium text-[#243447] mb-1.5">
+            <label className="block text-[15px] font-medium text-[#243447] mb-1.5">
               Activity Title <span className="text-[#B33A3A]">*</span>
             </label>
             <input
@@ -269,14 +269,14 @@ export const AddActivityPage: React.FC = () => {
                 if (errors.title) setErrors((prev) => ({ ...prev, title: undefined }));
               }}
               placeholder="e.g. Web Development Workshop, Code Rush Hackathon"
-              className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-xs sm:text-sm text-[#243447] placeholder-[#65758B] focus:outline-hidden transition-colors ${
+              className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-[16px] text-[#243447] placeholder-[#65758B] focus:outline-hidden transition-colors ${
                 errors.title
                   ? 'border-[#B33A3A] focus:border-[#B33A3A]'
                   : 'border-[#D9E0E7] focus:border-[#123B63]'
               }`}
             />
             {errors.title && (
-              <p className="text-[11px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
+              <p className="text-[13px] sm:text-[14px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
                 <AlertCircle className="w-3.5 h-3.5" />
                 {errors.title}
               </p>
@@ -287,7 +287,7 @@ export const AddActivityPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Field: Category */}
             <div>
-              <label className="block text-[13px] font-medium text-[#243447] mb-1.5">
+              <label className="block text-[15px] font-medium text-[#243447] mb-1.5">
                 Category <span className="text-[#B33A3A]">*</span>
               </label>
               <select
@@ -296,7 +296,7 @@ export const AddActivityPage: React.FC = () => {
                   setCategory(e.target.value as ActivityCategory);
                   if (errors.category) setErrors((prev) => ({ ...prev, category: undefined }));
                 }}
-                className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-xs sm:text-sm text-[#243447] focus:outline-hidden transition-colors ${
+                className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-[16px] text-[#243447] focus:outline-hidden transition-colors ${
                   errors.category
                     ? 'border-[#B33A3A] focus:border-[#B33A3A]'
                     : 'border-[#D9E0E7] focus:border-[#123B63]'
@@ -310,7 +310,7 @@ export const AddActivityPage: React.FC = () => {
                 ))}
               </select>
               {errors.category && (
-                <p className="text-[11px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
+                <p className="text-[13px] sm:text-[14px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
                   <AlertCircle className="w-3.5 h-3.5" />
                   {errors.category}
                 </p>
@@ -319,7 +319,7 @@ export const AddActivityPage: React.FC = () => {
 
             {/* Field: Level */}
             <div>
-              <label className="block text-[13px] font-medium text-[#243447] mb-1.5">
+              <label className="block text-[15px] font-medium text-[#243447] mb-1.5">
                 Level <span className="text-[#B33A3A]">*</span>
               </label>
               <select
@@ -328,7 +328,7 @@ export const AddActivityPage: React.FC = () => {
                   setLevel(e.target.value as ActivityLevel);
                   if (errors.level) setErrors((prev) => ({ ...prev, level: undefined }));
                 }}
-                className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-xs sm:text-sm text-[#243447] focus:outline-hidden transition-colors ${
+                className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-[16px] text-[#243447] focus:outline-hidden transition-colors ${
                   errors.level
                     ? 'border-[#B33A3A] focus:border-[#B33A3A]'
                     : 'border-[#D9E0E7] focus:border-[#123B63]'
@@ -342,7 +342,7 @@ export const AddActivityPage: React.FC = () => {
                 ))}
               </select>
               {errors.level && (
-                <p className="text-[11px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
+                <p className="text-[13px] sm:text-[14px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
                   <AlertCircle className="w-3.5 h-3.5" />
                   {errors.level}
                 </p>
@@ -354,7 +354,7 @@ export const AddActivityPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             {/* Field: Date */}
             <div>
-              <label className="block text-[13px] font-medium text-[#243447] mb-1.5">
+              <label className="block text-[15px] font-medium text-[#243447] mb-1.5">
                 Date <span className="text-[#B33A3A]">*</span>
               </label>
               <input
@@ -364,14 +364,14 @@ export const AddActivityPage: React.FC = () => {
                   setDate(e.target.value);
                   if (errors.date) setErrors((prev) => ({ ...prev, date: undefined }));
                 }}
-                className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-xs sm:text-sm text-[#243447] focus:outline-hidden transition-colors ${
+                className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-[16px] text-[#243447] focus:outline-hidden transition-colors ${
                   errors.date
                     ? 'border-[#B33A3A] focus:border-[#B33A3A]'
                     : 'border-[#D9E0E7] focus:border-[#123B63]'
                 }`}
               />
               {errors.date && (
-                <p className="text-[11px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
+                <p className="text-[13px] sm:text-[14px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
                   <AlertCircle className="w-3.5 h-3.5" />
                   {errors.date}
                 </p>
@@ -380,7 +380,7 @@ export const AddActivityPage: React.FC = () => {
 
             {/* Field: Role */}
             <div>
-              <label className="block text-[13px] font-medium text-[#243447] mb-1.5">
+              <label className="block text-[15px] font-medium text-[#243447] mb-1.5">
                 Role <span className="text-[#B33A3A]">*</span>
               </label>
               <select
@@ -389,7 +389,7 @@ export const AddActivityPage: React.FC = () => {
                   setRole(e.target.value as ActivityRole);
                   if (errors.role) setErrors((prev) => ({ ...prev, role: undefined }));
                 }}
-                className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-xs sm:text-sm text-[#243447] focus:outline-hidden transition-colors ${
+                className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-[16px] text-[#243447] focus:outline-hidden transition-colors ${
                   errors.role
                     ? 'border-[#B33A3A] focus:border-[#B33A3A]'
                     : 'border-[#D9E0E7] focus:border-[#123B63]'
@@ -403,7 +403,7 @@ export const AddActivityPage: React.FC = () => {
                 ))}
               </select>
               {errors.role && (
-                <p className="text-[11px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
+                <p className="text-[13px] sm:text-[14px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
                   <AlertCircle className="w-3.5 h-3.5" />
                   {errors.role}
                 </p>
@@ -413,7 +413,7 @@ export const AddActivityPage: React.FC = () => {
 
           {/* Field: Organizing Institution */}
           <div>
-            <label className="block text-[13px] font-medium text-[#243447] mb-1.5">
+            <label className="block text-[15px] font-medium text-[#243447] mb-1.5">
               Organizing Institution <span className="text-[#B33A3A]">*</span>
             </label>
             <input
@@ -426,14 +426,14 @@ export const AddActivityPage: React.FC = () => {
                 }
               }}
               placeholder="e.g. KITS Ramtek, Dept of IT"
-              className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-xs sm:text-sm text-[#243447] placeholder-[#65758B] focus:outline-hidden transition-colors ${
+              className={`w-full h-[42px] px-3 bg-white border rounded-[5px] text-[16px] text-[#243447] placeholder-[#65758B] focus:outline-hidden transition-colors ${
                 errors.organizingInstitution
                   ? 'border-[#B33A3A] focus:border-[#B33A3A]'
                   : 'border-[#D9E0E7] focus:border-[#123B63]'
               }`}
             />
             {errors.organizingInstitution && (
-              <p className="text-[11px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
+              <p className="text-[13px] sm:text-[14px] text-[#B33A3A] mt-1 flex items-center gap-1 font-medium">
                 <AlertCircle className="w-3.5 h-3.5" />
                 {errors.organizingInstitution}
               </p>
@@ -443,27 +443,27 @@ export const AddActivityPage: React.FC = () => {
           {/* Field: Description (Optional) */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
-              <label className="block text-[13px] font-medium text-[#243447]">
+              <label className="block text-[15px] font-medium text-[#243447]">
                 Description
               </label>
-              <span className="text-[11px] text-[#65758B]">Optional</span>
+              <span className="text-[13px] sm:text-[14px] text-[#65758B]">Optional</span>
             </div>
             <textarea
               rows={3}
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Brief details regarding event participation, score, or project topic..."
-              className="w-full p-3 bg-white border border-[#D9E0E7] rounded-[5px] text-xs sm:text-sm text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63] transition-colors"
+              className="w-full p-3 bg-white border border-[#D9E0E7] rounded-[5px] text-[16px] text-[#243447] placeholder-[#65758B] focus:outline-hidden focus:border-[#123B63] transition-colors"
             />
           </div>
 
           {/* Field: Certificate / Proof (Optional, max 5MB, PDF/JPG/PNG) */}
           <div>
             <div className="flex items-center justify-between mb-1.5">
-              <label className="block text-[13px] font-medium text-[#243447]">
+              <label className="block text-[15px] font-medium text-[#243447]">
                 Certificate / Proof
               </label>
-              <span className="text-[11px] text-[#65758B]">Optional (PDF, JPG, PNG up to 5MB)</span>
+              <span className="text-[13px] sm:text-[14px] text-[#65758B]">Optional (PDF, JPG, PNG up to 5MB)</span>
             </div>
 
             <div className="border border-[#D9E0E7] bg-[#F5F7F9] rounded-[5px] p-3.5">
@@ -473,10 +473,10 @@ export const AddActivityPage: React.FC = () => {
                     <Upload className="w-4 h-4" />
                   </div>
                   <div>
-                    <p className="text-xs font-medium text-[#243447]">
+                    <p className="text-[14px] sm:text-[15px] font-medium text-[#243447]">
                       {certificateName || 'Attach certificate proof document'}
                     </p>
-                    <p className="text-[11px] text-[#65758B]">
+                    <p className="text-[13px] sm:text-[14px] text-[#65758B]">
                       {certificateFile
                         ? `${(certificateFile.size / (1024 * 1024)).toFixed(2)} MB`
                         : 'PDF, JPG, PNG format'}
@@ -500,7 +500,7 @@ export const AddActivityPage: React.FC = () => {
                       <X className="w-4 h-4" />
                     </button>
                   )}
-                  <label className="cursor-pointer px-3 py-1.5 bg-white hover:bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] text-xs font-semibold text-[#123B63] transition-colors">
+                  <label className="cursor-pointer px-3.5 py-1.5 bg-white hover:bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] text-[14px] sm:text-[15px] font-semibold text-[#123B63] transition-colors">
                     Browse File
                     <input
                       type="file"
@@ -513,7 +513,7 @@ export const AddActivityPage: React.FC = () => {
               </div>
 
               {errors.certificate && (
-                <p className="text-[11px] text-[#B33A3A] mt-2 flex items-center gap-1 font-medium">
+                <p className="text-[13px] sm:text-[14px] text-[#B33A3A] mt-2 flex items-center gap-1 font-medium">
                   <AlertCircle className="w-3.5 h-3.5" />
                   {errors.certificate}
                 </p>
@@ -526,14 +526,14 @@ export const AddActivityPage: React.FC = () => {
             <button
               type="button"
               onClick={() => navigate('/student/dashboard')}
-              className="px-4 py-2 text-xs font-semibold text-[#243447] bg-white border border-[#D9E0E7] rounded-[5px] hover:bg-[#F5F7F9] transition-colors"
+              className="px-4 py-2 text-[15px] font-semibold text-[#243447] bg-white border border-[#D9E0E7] rounded-[5px] hover:bg-[#F5F7F9] transition-colors"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="px-5 py-2 text-xs font-semibold text-white bg-[#123B63] hover:bg-[#0B2945] rounded-[5px] transition-colors"
+              className="px-5 py-2 text-[15px] font-semibold text-white bg-[#123B63] hover:bg-[#0B2945] rounded-[5px] transition-colors"
             >
               Submit Activity
             </button>

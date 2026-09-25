@@ -28,7 +28,7 @@ export const PublicNavbar: React.FC = () => {
           <nav className="hidden lg:flex items-center gap-7">
             <Link
               to="/home"
-              className={`text-xs sm:text-sm font-medium transition-colors ${
+              className={`text-[15px] sm:text-[16px] font-medium transition-colors ${
                 location.pathname === '/home' || location.pathname === '/landing' ? 'text-[#123B63] font-semibold' : 'text-[#65758B] hover:text-[#0B2945]'
               }`}
             >
@@ -37,34 +37,34 @@ export const PublicNavbar: React.FC = () => {
             <a
               href="#about"
               onClick={(e) => { e.preventDefault(); scrollToSection('about'); }}
-              className="text-xs sm:text-sm font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
+              className="text-[15px] sm:text-[16px] font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
             >
               About
             </a>
             <a
               href="#how-it-works"
               onClick={(e) => { e.preventDefault(); scrollToSection('how-it-works'); }}
-              className="text-xs sm:text-sm font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
+              className="text-[15px] sm:text-[16px] font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
             >
               How It Works
             </a>
             <a
               href="#activities"
               onClick={(e) => { e.preventDefault(); scrollToSection('activities'); }}
-              className="text-xs sm:text-sm font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
+              className="text-[15px] sm:text-[16px] font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
             >
               Activities
             </a>
             <a
               href="#guidelines"
               onClick={(e) => { e.preventDefault(); scrollToSection('guidelines'); }}
-              className="text-xs sm:text-sm font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
+              className="text-[15px] sm:text-[16px] font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
             >
               Guidelines
             </a>
             <Link
               to="/login"
-              className="text-xs sm:text-sm font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
+              className="text-[15px] sm:text-[16px] font-medium text-[#65758B] hover:text-[#0B2945] transition-colors"
             >
               Login
             </Link>
@@ -74,7 +74,7 @@ export const PublicNavbar: React.FC = () => {
           <div className="hidden sm:flex items-center gap-3">
             <Link
               to="/login"
-              className="px-4 py-2 text-xs sm:text-sm font-semibold text-white bg-[#123B63] hover:bg-[#0B2945] rounded-[5px] transition-colors"
+              className="px-4 py-2 text-[15px] sm:text-[16px] font-semibold text-white bg-[#123B63] hover:bg-[#0B2945] rounded-[5px] transition-colors"
             >
               Login to Portal
             </Link>
@@ -98,38 +98,38 @@ export const PublicNavbar: React.FC = () => {
             <Link
               to="/home"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-1.5 text-sm font-medium text-[#123B63]"
+              className="block px-3 py-1.5 text-[15px] font-medium text-[#123B63]"
             >
               Home
             </Link>
             <button
               onClick={() => scrollToSection('about')}
-              className="block w-full text-left px-3 py-1.5 text-sm font-medium text-[#65758B] hover:text-[#0B2945]"
+              className="block w-full text-left px-3 py-1.5 text-[15px] font-medium text-[#65758B] hover:text-[#0B2945]"
             >
               About
             </button>
             <button
               onClick={() => scrollToSection('how-it-works')}
-              className="block w-full text-left px-3 py-1.5 text-sm font-medium text-[#65758B] hover:text-[#0B2945]"
+              className="block w-full text-left px-3 py-1.5 text-[15px] font-medium text-[#65758B] hover:text-[#0B2945]"
             >
               How It Works
             </button>
             <button
               onClick={() => scrollToSection('activities')}
-              className="block w-full text-left px-3 py-1.5 text-sm font-medium text-[#65758B] hover:text-[#0B2945]"
+              className="block w-full text-left px-3 py-1.5 text-[15px] font-medium text-[#65758B] hover:text-[#0B2945]"
             >
               Activities
             </button>
             <button
               onClick={() => scrollToSection('guidelines')}
-              className="block w-full text-left px-3 py-1.5 text-sm font-medium text-[#65758B] hover:text-[#0B2945]"
+              className="block w-full text-left px-3 py-1.5 text-[15px] font-medium text-[#65758B] hover:text-[#0B2945]"
             >
               Guidelines
             </button>
             <Link
               to="/login"
               onClick={() => setMobileMenuOpen(false)}
-              className="block px-3 py-1.5 text-sm font-medium text-[#123B63] font-semibold"
+              className="block px-3 py-1.5 text-[15px] font-semibold text-[#123B63]"
             >
               Login to Portal
             </Link>
