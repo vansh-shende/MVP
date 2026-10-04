@@ -217,7 +217,7 @@ export const LoginPage: React.FC = () => {
             <div className="space-y-3">
               <div className="h-11 w-auto max-w-[56px] shrink-0">
                 <img
-                  src="/kits/kits-emblem.png"
+                  src={`${import.meta.env.BASE_URL}kits/kits-emblem.png`}
                   alt="KITS Ramtek Emblem"
                   className="h-full w-auto object-contain"
                 />

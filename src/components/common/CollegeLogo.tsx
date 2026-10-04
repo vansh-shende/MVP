@@ -31,7 +31,7 @@ export const CollegeLogo: React.FC<CollegeLogoProps> = ({
       <div className={`flex items-center justify-center shrink-0 ${emblemSizes[size]}`}>
         {!imgError ? (
           <img
-            src="/kits/kits-emblem.png"
+            src={`${import.meta.env.BASE_URL}kits/kits-emblem.png`}
             alt="KITS Ramtek Official Emblem"
             className="h-full w-auto object-contain"
             onError={() => setImgError(true)}

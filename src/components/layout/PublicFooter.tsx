@@ -11,7 +11,7 @@ export const PublicFooter: React.FC = () => {
             <div className="flex items-center gap-3">
               <div className="bg-white p-1 rounded-[4px] shrink-0 flex items-center justify-center shadow-xs">
                 <img
-                  src="/kits/kits-emblem.png"
+                  src={`${import.meta.env.BASE_URL}kits/kits-emblem.png`}
                   alt="KITS Ramtek Emblem"
                   className="h-9 w-auto object-contain"
                 />

@@ -50,7 +50,7 @@ export const LandingPage: React.FC = () => {
             <div className="lg:col-span-7 space-y-4">
               <div className="inline-flex items-center gap-2 px-3 py-1 bg-[#EAF2F8] border border-[#D9E0E7] rounded-[4px] text-xs font-semibold text-[#123B63]">
                 <img
-                  src="/kits/kits-emblem.png"
+                  src={`${import.meta.env.BASE_URL}kits/kits-emblem.png`}
                   alt="KITS Emblem"
                   className="h-4 w-auto object-contain"
                 />
@@ -112,7 +112,7 @@ export const LandingPage: React.FC = () => {
               <div className="bg-white rounded-[6px] border border-[#D9E0E7] overflow-hidden shadow-xs">
                 <div className="relative aspect-16/10 w-full bg-[#EAF2F8] overflow-hidden">
                   <img
-                    src="/kits/kits-campus-aerial.png"
+                    src={`${import.meta.env.BASE_URL}kits/kits-campus-aerial.png`}
                     alt="Kavikulguru Institute of Technology & Science Campus Aerial View"
                     className="w-full h-full object-cover"
                     loading="eager"
@@ -144,7 +144,7 @@ export const LandingPage: React.FC = () => {
               <div className="bg-white rounded-[6px] border border-[#D9E0E7] overflow-hidden shadow-xs">
                 <div className="relative aspect-16/11 w-full bg-[#EAF2F8] overflow-hidden">
                   <img
-                    src="/kits/kits-campus-main.jpg"
+                    src={`${import.meta.env.BASE_URL}kits/kits-campus-main.jpg`}
                     alt="KITS Ramtek Main Administrative and Academic Block"
                     className="w-full h-full object-cover"
                     loading="lazy"
@@ -394,7 +394,7 @@ export const LandingPage: React.FC = () => {
             <div className="bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] overflow-hidden">
               <div className="aspect-16/10 w-full overflow-hidden bg-slate-200">
                 <img
-                  src="/kits/kits-event-soffi.jpg"
+                  src={`${import.meta.env.BASE_URL}kits/kits-event-soffi.jpg`}
                   alt="SOFFI Technical Festival at KITS Ramtek"
                   className="w-full h-full object-cover hover:scale-102 transition-transform duration-300"
                   loading="lazy"
@@ -417,7 +417,7 @@ export const LandingPage: React.FC = () => {
             <div className="bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] overflow-hidden">
               <div className="aspect-16/10 w-full overflow-hidden bg-slate-200">
                 <img
-                  src="/kits/kits-event-annual.jpg"
+                  src={`${import.meta.env.BASE_URL}kits/kits-event-annual.jpg`}
                   alt="Annual Day Function Celebrations at KITS Ramtek"
                   className="w-full h-full object-cover hover:scale-102 transition-transform duration-300"
                   loading="lazy"
@@ -440,7 +440,7 @@ export const LandingPage: React.FC = () => {
             <div className="bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] overflow-hidden">
               <div className="aspect-16/10 w-full overflow-hidden bg-slate-200">
                 <img
-                  src="/kits/kits-event-republic.jpg"
+                  src={`${import.meta.env.BASE_URL}kits/kits-event-republic.jpg`}
                   alt="Republic Day Celebrations at KITS Ramtek"
                   className="w-full h-full object-cover hover:scale-102 transition-transform duration-300"
                   loading="lazy"
@@ -463,7 +463,7 @@ export const LandingPage: React.FC = () => {
             <div className="bg-[#F5F7F9] border border-[#D9E0E7] rounded-[5px] overflow-hidden">
               <div className="aspect-16/10 w-full overflow-hidden bg-slate-200">
                 <img
-                  src="/kits/kits-event-alumni.jpg"
+                  src={`${import.meta.env.BASE_URL}kits/kits-event-alumni.jpg`}
                   alt="Alumni Meet at KITS Ramtek"
                   className="w-full h-full object-cover hover:scale-102 transition-transform duration-300"
                   loading="lazy"

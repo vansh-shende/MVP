@@ -42,22 +42,22 @@ export const VerificationModal: React.FC<VerificationModalProps> = ({
     // If no direct data is present, match with demo certificates
     if (!url) {
       if (fileName.toLowerCase().endsWith('.pdf')) {
-        url = '/certificates/sample-certificate.pdf';
+        url = `${import.meta.env.BASE_URL}certificates/sample-certificate.pdf`;
         fileType = 'application/pdf';
       } else if (submission.category === 'Hackathon' || submission.title?.toLowerCase().includes('hackathon') || submission.title?.toLowerCase().includes('code')) {
-        url = '/certificates/demo-certificate-hackathon.png';
+        url = `${import.meta.env.BASE_URL}certificates/demo-certificate-hackathon.png`;
         fileType = 'image/png';
       } else if (submission.title?.toLowerCase().includes('ai') || submission.title?.toLowerCase().includes('machine learning')) {
-        url = '/certificates/demo-certificate-aiml.png';
+        url = `${import.meta.env.BASE_URL}certificates/demo-certificate-aiml.png`;
         fileType = 'image/png';
       } else if (submission.title?.toLowerCase().includes('embedded') || submission.title?.toLowerCase().includes('iot')) {
-        url = '/certificates/demo-certificate-embedded.png';
+        url = `${import.meta.env.BASE_URL}certificates/demo-certificate-embedded.png`;
         fileType = 'image/png';
       } else if (submission.title?.toLowerCase().includes('quiz')) {
-        url = '/certificates/demo-certificate-quiz.png';
+        url = `${import.meta.env.BASE_URL}certificates/demo-certificate-quiz.png`;
         fileType = 'image/png';
       } else {
-        url = '/certificates/demo-certificate-workshop.png';
+        url = `${import.meta.env.BASE_URL}certificates/demo-certificate-workshop.png`;
         fileType = 'image/png';
       }
     }
