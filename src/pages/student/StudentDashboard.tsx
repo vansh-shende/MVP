@@ -4,11 +4,15 @@ import {
   PlusCircle,
   ListFilter,
   User,
-  ChevronRight
+  ChevronRight,
+  CalendarCheck,
+  CheckCircle2,
+  AlertTriangle
 } from 'lucide-react';
 import { DashboardLayout } from '../../components/layout/DashboardLayout';
 import { useAuth } from '../../context/AuthContext';
 import { useActivity } from '../../context/ActivityContext';
+import { useAttendance } from '../../context/AttendanceContext';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { ProofPreviewModal } from '../../components/modals/ProofPreviewModal';
 import { ActivitySubmission } from '../../types';
@@ -17,8 +21,11 @@ export const StudentDashboard: React.FC = () => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const { submissions, stats } = useActivity();
+  const { getStudentProfileAttendance } = useAttendance();
 
   const [selectedSubmission, setSelectedSubmission] = useState<ActivitySubmission | null>(null);
+
+  const studentProf = getStudentProfileAttendance(currentUser?.id || 'std-103');
 
   // Student submissions for Vansh Shende
   const studentSubs = submissions.filter(
@@ -225,6 +232,55 @@ export const StudentDashboard: React.FC = () => {
               </div>
             </div>
 
+            {/* Student Attendance Summary Widget */}
+            <div className="bg-white rounded-[6px] border border-[#D9E0E7] p-4">
+              <div className="flex items-center justify-between pb-2.5 border-b border-[#D9E0E7] mb-3">
+                <div className="flex items-center gap-2">
+                  <CalendarCheck className="w-4 h-4 text-[#123B63]" />
+                  <h3 className="text-[14px] font-bold uppercase tracking-wider text-[#65758B]">
+                    Attendance Status
+                  </h3>
+                </div>
+                <button
+                  onClick={() => navigate('/student/attendance')}
+                  className="text-[14px] font-semibold text-[#123B63] hover:text-[#0B2945]"
+                >
+                  View All
+                </button>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div>
+                  <span className="text-[13px] text-[#65758B]">Aggregate Attendance</span>
+                  <p className="text-[26px] font-bold text-[#0B2945] font-mono leading-none mt-1">
+                    {studentProf.percentage}%
+                  </p>
+                </div>
+                <span
+                  className={`text-[12px] font-bold px-2 py-0.5 rounded ${
+                    studentProf.status === 'Safe'
+                      ? 'bg-[#EAF6EE] text-[#287A55]'
+                      : 'bg-[#FDF2F2] text-[#B33A3A]'
+                  }`}
+                >
+                  {studentProf.status === 'Safe' ? 'Eligible' : 'Shortage'}
+                </span>
+              </div>
+
+              <div className="w-full bg-[#E5E9EE] h-1.5 rounded-full mt-2.5 overflow-hidden">
+                <div
+                  className={`h-full rounded-full ${
+                    studentProf.status === 'Safe' ? 'bg-[#287A55]' : 'bg-[#B33A3A]'
+                  }`}
+                  style={{ width: `${Math.min(100, studentProf.percentage)}%` }}
+                />
+              </div>
+
+              <p className="text-[12px] text-[#65758B] mt-2">
+                {studentProf.attendedClasses} of {studentProf.totalClasses} lectures attended across {studentProf.subjectSummaries.length} subjects.
+              </p>
+            </div>
+
             {/* Quick Actions Panel */}
             <div className="bg-white rounded-[6px] border border-[#D9E0E7] p-4">
               <h3 className="text-[14px] font-bold uppercase tracking-wider text-[#65758B] mb-2.5">
@@ -232,6 +288,17 @@ export const StudentDashboard: React.FC = () => {
               </h3>
 
               <div className="space-y-2">
+                <button
+                  onClick={() => navigate('/student/attendance')}
+                  className="w-full flex items-center justify-between p-2.5 rounded-[5px] bg-[#EAF2F8] hover:bg-[#D4E4F2] text-[#123B63] text-left transition-colors border border-[#BED2E4]"
+                >
+                  <div className="flex items-center gap-2">
+                    <CalendarCheck className="w-4 h-4 text-[#123B63]" />
+                    <span className="text-[15px] font-semibold">Check Full Attendance</span>
+                  </div>
+                  <ChevronRight className="w-4 h-4 text-[#123B63]/70" />
+                </button>
+
                 <button
                   onClick={() => navigate('/student/add-activity')}
                   className="w-full flex items-center justify-between p-2.5 rounded-[5px] bg-[#123B63] hover:bg-[#0B2945] text-white text-left transition-colors"

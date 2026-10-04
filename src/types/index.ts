@@ -75,3 +75,6 @@ export interface ActivitySubmission {
   reviewedAt?: string;
   activityPoints?: number;
 }
+
+export * from './attendance';
+

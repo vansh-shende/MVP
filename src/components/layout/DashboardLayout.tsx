@@ -7,6 +7,7 @@ import {
   FileText,
   ShieldCheck,
   Users,
+  CalendarCheck,
   LogOut,
   Menu,
   X
@@ -39,6 +40,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       title: 'STUDENT PORTAL',
       items: [
         { label: 'Dashboard', path: '/student/dashboard', icon: LayoutDashboard },
+        { label: 'Attendance', path: '/student/attendance', icon: CalendarCheck },
         { label: 'My Profile', path: '/student/profile', icon: User },
         { label: 'Add Activity', path: '/student/add-activity', icon: PlusCircle },
         { label: 'My Submissions', path: '/student/submissions', icon: FileText },
@@ -51,6 +53,7 @@ export const DashboardLayout: React.FC<DashboardLayoutProps> = ({
       title: 'FACULTY PORTAL',
       items: [
         { label: 'Dashboard', path: '/teacher/dashboard', icon: LayoutDashboard },
+        { label: 'Manage Attendance', path: '/teacher/attendance', icon: CalendarCheck },
         { label: 'Pending Submissions', path: '/teacher/verify', icon: ShieldCheck },
         { label: 'Student Records', path: '/teacher/students', icon: Users },
       ]

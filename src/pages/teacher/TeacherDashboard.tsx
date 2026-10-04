@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
   CheckCircle2,
-  Clock
+  Clock,
+  CalendarCheck,
+  PlusCircle,
+  Users,
+  ChevronRight,
+  AlertTriangle
 } from 'lucide-react';
 import { DashboardLayout } from '../../components/layout/DashboardLayout';
 import { useAuth } from '../../context/AuthContext';
 import { useActivity } from '../../context/ActivityContext';
+import { useAttendance } from '../../context/AttendanceContext';
 import { StatusBadge } from '../../components/common/StatusBadge';
 import { VerificationModal } from '../../components/modals/VerificationModal';
 import { ActivitySubmission, SubmissionStatus } from '../../types';
@@ -15,9 +21,14 @@ export const TeacherDashboard: React.FC = () => {
   const navigate = useNavigate();
   const { currentUser } = useAuth();
   const { submissions, stats, updateSubmissionStatus } = useActivity();
+  const { sessions, grievances, getAllStudentsAttendanceSummary } = useAttendance();
 
   const [selectedSubForReview, setSelectedSubForReview] = useState<ActivitySubmission | null>(null);
   const [actionFeedback, setActionFeedback] = useState<string>('');
+
+  const allStudents = getAllStudentsAttendanceSummary();
+  const defaulterCount = allStudents.filter((s) => s.percentage < 75).length;
+  const pendingLeaves = grievances.filter((g) => g.status === 'Pending').length;
 
   // Pending activities
   const pendingSubmissions = submissions.filter(
@@ -113,6 +124,34 @@ export const TeacherDashboard: React.FC = () => {
                 : stats.teacherStats.totalSubmissions}
             </p>
             <p className="text-[14px] text-[#65758B] mt-0.5">Student submissions</p>
+          </div>
+        </div>
+
+        {/* ATTENDANCE QUICK MANAGEMENT BANNER */}
+        <div className="bg-white rounded-[6px] border border-[#D9E0E7] p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center gap-3">
+            <div className="p-2.5 bg-[#EAF2F8] text-[#123B63] rounded-[5px] shrink-0">
+              <CalendarCheck className="w-6 h-6" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2">
+                <h3 className="text-[16px] font-bold text-[#0B2945]">Department Attendance Management</h3>
+                <span className="text-[11px] font-bold bg-[#EAF6EE] text-[#287A55] px-2 py-0.5 rounded">Active Semester</span>
+              </div>
+              <p className="text-[13px] text-[#65758B] mt-0.5">
+                {sessions.length} sessions recorded • {defaulterCount} students in shortage warning (&lt;75%) • {pendingLeaves} pending leave requests
+              </p>
+            </div>
+          </div>
+
+          <div className="flex items-center gap-2 shrink-0">
+            <button
+              onClick={() => navigate('/teacher/attendance')}
+              className="px-4 py-2 bg-[#123B63] text-white rounded-[5px] text-[13px] font-semibold hover:bg-[#0B2945] transition-colors flex items-center gap-1.5 cursor-pointer shadow-sm"
+            >
+              <span>Manage Attendance</span>
+              <ChevronRight className="w-4 h-4" />
+            </button>
           </div>
         </div>
 
