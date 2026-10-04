@@ -97,9 +97,15 @@ const generateInitialSessions = (): AttendanceSession[] => {
         let status: AttendanceStatus = 'Present';
         let remarks: string | undefined = undefined;
 
-        // Vansh Shende (std-103) has solid ~86% attendance
+        // Vansh Shende (std-103): Overall good (~81%), but IT504 (Computer Networks) has low attendance (60%) to demonstrate unmet requirement
         if (student.id === 'std-103') {
-          if (dateStr === '2026-09-08' && sIndex === 0) {
+          if (subj.code === 'IT504') {
+            // Absent on several IT504 sessions to bring below 75% threshold
+            if (dIndex % 2 === 0) {
+              status = 'Absent';
+              remarks = 'Absent (Lecture)';
+            }
+          } else if (dateStr === '2026-09-08' && sIndex === 0) {
             status = 'Absent';
             remarks = 'Unexcused';
           } else if (dateStr === '2026-09-18') {
@@ -112,13 +118,13 @@ const generateInitialSessions = (): AttendanceSession[] => {
             status = 'Absent';
           }
         } else if (student.id === 'std-105') {
-          // Badal Ramteke - Low attendance ~68%
-          if ((dIndex + studentIndex) % 3 === 0) {
+          // Badal Ramteke - Low overall attendance ~64% (Defaulter)
+          if ((dIndex + studentIndex) % 2 === 0) {
             status = 'Absent';
           }
         } else if (student.id === 'std-109') {
-          // Mohit Nandhanvar - ~72%
-          if ((dIndex + studentIndex) % 4 === 0) {
+          // Mohit Nandhanvar - ~70%
+          if ((dIndex + studentIndex) % 3 === 0) {
             status = 'Absent';
           }
         } else {
@@ -231,7 +237,7 @@ export const AttendanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   const [subjects] = useState<SubjectInfo[]>(INITIAL_SUBJECTS);
 
   const [sessions, setSessions] = useState<AttendanceSession[]>(() => {
-    const saved = localStorage.getItem('kits_attendance_sessions_v2');
+    const saved = localStorage.getItem('kits_attendance_sessions_v3');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -243,7 +249,7 @@ export const AttendanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   });
 
   const [grievances, setGrievances] = useState<AttendanceGrievance[]>(() => {
-    const saved = localStorage.getItem('kits_attendance_grievances_v2');
+    const saved = localStorage.getItem('kits_attendance_grievances_v3');
     if (saved) {
       try {
         return JSON.parse(saved);
@@ -255,11 +261,11 @@ export const AttendanceProvider: React.FC<{ children: React.ReactNode }> = ({ ch
   });
 
   useEffect(() => {
-    localStorage.setItem('kits_attendance_sessions_v2', JSON.stringify(sessions));
+    localStorage.setItem('kits_attendance_sessions_v3', JSON.stringify(sessions));
   }, [sessions]);
 
   useEffect(() => {
-    localStorage.setItem('kits_attendance_grievances_v2', JSON.stringify(grievances));
+    localStorage.setItem('kits_attendance_grievances_v3', JSON.stringify(grievances));
   }, [grievances]);
 
   // Mark/Add new attendance session
