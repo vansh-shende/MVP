@@ -10,7 +10,6 @@ import {
   Download,
   Search,
   Filter,
-  Info,
   CalendarCheck,
   ShieldCheck,
   TrendingUp,
@@ -395,14 +394,6 @@ export const StudentAttendancePage: React.FC = () => {
                   </div>
                 );
               })}
-            </div>
-
-            {/* University Attendance Regulations Note */}
-            <div className="bg-[#EAF2F8] border border-[#BED2E4] rounded-[6px] p-4 flex items-start gap-3">
-              <Info className="w-5 h-5 text-[#123B63] shrink-0 mt-0.5" />
-              <div className="text-[13px] text-[#123B63] leading-relaxed">
-                <strong>RTMNU & KITS Academic Regulation:</strong> Minimum 75% aggregate and subject-wise attendance is mandatory for appearing in the End-Semester Examinations. Students with attendance between 65% and 75% on genuine medical/sports grounds must submit formal regularization documents through the Faculty Reviewer.
-              </div>
             </div>
           </div>
         )}
