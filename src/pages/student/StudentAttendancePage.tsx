@@ -382,7 +382,7 @@ export const StudentAttendancePage: React.FC = () => {
                       {isSafe ? (
                         <p className="text-[#287A55] font-medium flex items-center gap-1.5">
                           <CheckCircle2 className="w-3.5 h-3.5 shrink-0" />
-                          <span>You can safely miss <strong>{subject.canSafelyMiss}</strong> more class(es) while staying above 75%.</span>
+                          <span>Attendance requirement met (&ge; 75%)</span>
                         </p>
                       ) : (
                         <p className="text-[#B33A3A] font-medium flex items-center gap-1.5">
